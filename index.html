@@ -55,13 +55,13 @@ nav a:hover { color: #25D366; }
 .brand-dropdown {
   position: absolute;
   top: 35px;
-  left: 0;
+  right: 0;              /* FIX: screen se bahar nahi jayega */
   background: rgba(0,0,0,0.95);
   backdrop-filter: blur(16px);
   border: 1px solid #222;
   border-radius: 14px;
   padding: 15px;
-  min-width: 420px;
+  min-width: 360px;
   display: none;
   z-index: 999;
 }
@@ -174,7 +174,7 @@ footer {
 
 <!-- PRODUCTS -->
 <div class="container">
-  <div class="products" id="royalx-products">
+  <div class="products">
 
     <div class="product" data-category="handsfree">
       <img src="34.jpeg">
