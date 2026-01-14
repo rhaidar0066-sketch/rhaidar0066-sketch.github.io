@@ -127,6 +127,61 @@
       font-size: 13px;
       color: #888;
     }
+    /* ROYALX DROPDOWN */
+.royalx-menu {
+  position: relative;
+  display: inline-block;
+}
+
+.royalx-dropdown {
+  position: absolute;
+  top: 35px;
+  left: 0;
+  background: rgba(0,0,0,0.95);
+  backdrop-filter: blur(15px);
+  border: 1px solid #222;
+  border-radius: 12px;
+  padding: 15px;
+  min-width: 420px;
+  display: none;
+  animation: slideDown 0.3s ease;
+  z-index: 1000;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.royalx-menu:hover .royalx-dropdown {
+  display: block;
+}
+
+.royalx-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.royalx-item {
+  text-align: center;
+  font-size: 12px;
+  color: #ddd;
+}
+
+.royalx-item img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 5px;
+  border: 1px solid #333;
+}
+
   </style>
 </head>
 
@@ -137,11 +192,44 @@
     <img src="logo.jpg">
     <nav>
       <a href="#">Home</a>
-      <a href="#">Shop</a>
-      <a href="#">Chargers</a>
-      <a href="#">Handsfree</a>
-      <a href="#">Power Banks</a>
-      <a href="#">RoyalX</a>
+      <a href="#">Jcell</a>
+      <a href="#">Geman</a>
+      <a href="#">KMC</a>
+      <a href="#">Ronin</a>
+      <div class="royalx-menu">
+  <a href="#">RoyalX</a>
+
+  <div class="royalx-dropdown">
+    <div class="royalx-grid">
+
+      <div class="royalx-item">
+        Handsfree
+      </div>
+
+      <div class="royalx-item">
+        Airbuds
+      </div>
+
+      <div class="royalx-item">
+        Headphone
+      </div>
+
+      <div class="royalx-item">
+        Charger
+      </div>
+
+      <div class="royalx-item">
+        Adapter
+      </div>
+
+      <div class="royalx-item">
+        Data Cables
+      </div>
+
+    </div>
+  </div>
+</div>
+
     </nav>
   </header>
 
