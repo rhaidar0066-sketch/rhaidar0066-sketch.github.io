@@ -25,9 +25,7 @@ header {
   justify-content: space-between;
 }
 
-header img {
-  height: 45px;
-}
+header img { height: 45px; }
 
 nav {
   display: flex;
@@ -42,9 +40,7 @@ nav a {
   cursor: pointer;
 }
 
-nav a:hover {
-  color: #25D366;
-}
+nav a:hover { color: #25D366; }
 
 /* HERO */
 .hero {
@@ -53,21 +49,8 @@ nav a:hover {
   background: linear-gradient(to bottom, #111, #000);
 }
 
-.hero h1 {
-  margin: 0;
-  font-size: 30px;
-}
-
-.hero p {
-  color: #aaa;
-  font-size: 14px;
-  margin-top: 8px;
-}
-
-/* DROPDOWN SYSTEM */
-.brand-menu {
-  position: relative;
-}
+/* DROPDOWN */
+.brand-menu { position: relative; }
 
 .brand-dropdown {
   position: absolute;
@@ -83,9 +66,7 @@ nav a:hover {
   z-index: 999;
 }
 
-.brand-menu.show .brand-dropdown {
-  display: block;
-}
+.brand-menu.show .brand-dropdown { display: block; }
 
 .brand-grid {
   display: grid;
@@ -103,12 +84,51 @@ nav a:hover {
   width: 100%;
   border-radius: 8px;
   border: 1px solid #333;
-  margin-bottom: 5px;
-  transition: transform 0.3s;
 }
 
-.brand-item img:hover {
-  transform: scale(1.05);
+/* PRODUCTS */
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 40px 20px;
+}
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px,1fr));
+  gap: 22px;
+}
+
+.product {
+  background: rgba(255,255,255,0.07);
+  backdrop-filter: blur(14px);
+  border-radius: 16px;
+  padding: 15px;
+  border: 1px solid rgba(255,255,255,0.12);
+}
+
+.product img {
+  width: 100%;
+  border-radius: 12px;
+}
+
+.product h3 {
+  font-size: 15px;
+  margin: 10px 0 5px;
+}
+
+.price { font-weight: bold; }
+
+.btn {
+  display: block;
+  text-align: center;
+  margin-top: 10px;
+  padding: 10px;
+  background: #25D366;
+  color: #000;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
 }
 
 /* FOOTER */
@@ -125,72 +145,11 @@ footer {
 <body>
 
 <header>
-  <img src="logo.jpg" alt="Haider Mobiles">
+  <img src="logo.jpg">
 
   <nav>
     <a href="#">Home</a>
 
-    <!-- Jcell -->
-    <div class="brand-menu">
-      <a onclick="toggleMenu(this)">Jcell</a>
-      <div class="brand-dropdown">
-        <div class="brand-grid">
-          <div class="brand-item"><img src="1.jpg">Handsfree</div>
-          <div class="brand-item"><img src="2.jpg">Airbuds</div>
-          <div class="brand-item"><img src="3.jpg">Headphone</div>
-          <div class="brand-item"><img src="4.jpg">Charger</div>
-          <div class="brand-item"><img src="5.jpg">Adapter</div>
-          <div class="brand-item"><img src="6.jpg">Data Cable</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Geman -->
-    <div class="brand-menu">
-      <a onclick="toggleMenu(this)">Geman</a>
-      <div class="brand-dropdown">
-        <div class="brand-grid">
-          <div class="brand-item"><img src="7.jpg">Handsfree</div>
-          <div class="brand-item"><img src="8.jpg">Airbuds</div>
-          <div class="brand-item"><img src="9.jpg">Headphone</div>
-          <div class="brand-item"><img src="10.jpg">Charger</div>
-          <div class="brand-item"><img src="11.jpg">Adapter</div>
-          <div class="brand-item"><img src="12.jpg">Data Cable</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- KMC -->
-    <div class="brand-menu">
-      <a onclick="toggleMenu(this)">KMC</a>
-      <div class="brand-dropdown">
-        <div class="brand-grid">
-          <div class="brand-item"><img src="13.jpg">Handsfree</div>
-          <div class="brand-item"><img src="14.jpg">Airbuds</div>
-          <div class="brand-item"><img src="15.jpg">Headphone</div>
-          <div class="brand-item"><img src="16.jpg">Charger</div>
-          <div class="brand-item"><img src="17.jpg">Adapter</div>
-          <div class="brand-item"><img src="18.jpg">Data Cable</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Ronin -->
-    <div class="brand-menu">
-      <a onclick="toggleMenu(this)">Ronin</a>
-      <div class="brand-dropdown">
-        <div class="brand-grid">
-          <div class="brand-item"><img src="19.jpg">Handsfree</div>
-          <div class="brand-item"><img src="20.jpg">Airbuds</div>
-          <div class="brand-item"><img src="21.jpg">Headphone</div>
-          <div class="brand-item"><img src="22.jpg">Charger</div>
-          <div class="brand-item"><img src="23.jpg">Adapter</div>
-          <div class="brand-item"><img src="24.jpg">Data Cable</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- RoyalX -->
     <div class="brand-menu">
       <a onclick="toggleMenu(this)">RoyalX</a>
       <div class="brand-dropdown">
@@ -204,35 +163,64 @@ footer {
         </div>
       </div>
     </div>
-
   </nav>
 </header>
 
 <div class="hero">
-  <h1>Premium Mobile Accessories</h1>
-  <p>RoyalX • Jcell • Geman • KMC • Ronin</p>
+  <h1>RoyalX Premium Accessories</h1>
+  <p>Official Products • Cash on Delivery</p>
+</div>
+
+<!-- ROYALX PRODUCTS -->
+<div class="container">
+  <h2>RoyalX Products</h2>
+
+  <div class="products">
+    <div class="product">
+      <img src="31.jpeg">
+      <h3>RoyalX Fast Charger</h3>
+      <div class="price">Rs 1,699</div>
+      <a class="btn" href="https://wa.me/923279518790">Order on WhatsApp</a>
+    </div>
+
+    <div class="product">
+      <img src="32.jpeg">
+      <h3>RoyalX Type-C Cable</h3>
+      <div class="price">Rs 699</div>
+      <a class="btn" href="https://wa.me/923279518790">Order on WhatsApp</a>
+    </div>
+
+    <div class="product">
+      <img src="33.jpeg">
+      <h3>RoyalX Wireless Earbuds</h3>
+      <div class="price">Rs 3,999</div>
+      <a class="btn" href="https://wa.me/923279518790">Order on WhatsApp</a>
+    </div>
+
+    <div class="product">
+      <img src="34.jpeg">
+      <h3>RoyalX Handsfree</h3>
+      <div class="price">Rs 1,299</div>
+      <a class="btn" href="https://wa.me/923279518790">Order on WhatsApp</a>
+    </div>
+  </div>
 </div>
 
 <footer>
-  © 2026 Haider Mobiles • Cash on Delivery Available
+© 2026 Haider Mobiles • GitHub Pages Live
 </footer>
 
 <script>
 function toggleMenu(el) {
   document.querySelectorAll('.brand-menu').forEach(menu => {
-    if (menu.contains(el)) {
-      menu.classList.toggle('show');
-    } else {
-      menu.classList.remove('show');
-    }
+    if (menu.contains(el)) menu.classList.toggle('show');
+    else menu.classList.remove('show');
   });
 }
 
-document.addEventListener('click', function(e) {
+document.addEventListener('click', e => {
   if (!e.target.closest('.brand-menu')) {
-    document.querySelectorAll('.brand-menu').forEach(menu => {
-      menu.classList.remove('show');
-    });
+    document.querySelectorAll('.brand-menu').forEach(m => m.classList.remove('show'));
   }
 });
 </script>
