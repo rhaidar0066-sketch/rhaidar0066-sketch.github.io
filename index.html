@@ -5,106 +5,76 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #000;
-      color: #fff;
+    body{margin:0;font-family:Arial;background:#000;color:#fff}
+    header{background:#000;border-bottom:1px solid #222;padding:15px 20px;
+      display:flex;align-items:center;justify-content:space-between}
+    header img{height:45px}
+    nav{display:flex;gap:15px;align-items:center}
+    nav a{color:#ccc;text-decoration:none;font-size:14px}
+    nav a:hover{color:#25D366}
+
+    .hero{text-align:center;padding:40px 20px;
+      background:linear-gradient(to bottom,#111,#000)}
+
+    /* DROPDOWN */
+    .brand-menu{position:relative}
+    .brand-dropdown{
+      position:absolute;top:35px;left:50%;
+      transform:translateX(-50%);
+      background:rgba(0,0,0,.95);
+      border:1px solid #222;
+      border-radius:14px;
+      padding:15px;
+      min-width:420px;
+      display:none;
+      z-index:1000
+    }
+    .brand-menu.active .brand-dropdown{display:block}
+
+    .brand-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:12px
+    }
+    .brand-item{
+      text-align:center;font-size:12px;color:#ddd;
+      cursor:pointer
+    }
+    .brand-item img{
+      width:100%;border-radius:8px;
+      border:1px solid #333;margin-bottom:5px
     }
 
-    /* HEADER */
-    header {
-      background: #000;
-      border-bottom: 1px solid #222;
-      padding: 15px 20px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+    .container{max-width:1200px;margin:auto;padding:30px 20px}
+    .products{
+      display:grid;
+      grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+      gap:20px
+    }
+    .product{
+      background:rgba(255,255,255,.07);
+      border:1px solid rgba(255,255,255,.12);
+      border-radius:14px;padding:15px
+    }
+    .product img{width:100%;border-radius:10px}
+    .price{font-weight:bold;margin:6px 0}
+    .btn{
+      display:block;text-align:center;
+      padding:8px;background:#25D366;
+      color:#000;border-radius:8px;
+      text-decoration:none;font-weight:bold
     }
 
-    header img {
-      height: 45px;
-    }
+    footer{text-align:center;border-top:1px solid #222;
+      padding:20px;color:#888;font-size:13px}
 
-    nav {
-      display: flex;
-      align-items: center;
-      gap: 15px;
+    /* MOBILE MENU */
+    .mobile-menu{
+      position:fixed;bottom:0;left:0;width:100%;
+      background:#111;display:flex;
+      justify-content:space-around;padding:10px
     }
-
-    nav a {
-      color: #ccc;
-      text-decoration: none;
-      font-size: 14px;
-    }
-
-    nav a:hover {
-      color: #25D366;
-    }
-
-    /* HERO */
-    .hero {
-      padding: 40px 20px;
-      text-align: center;
-      background: linear-gradient(to bottom, #111, #000);
-    }
-
-    /* COMMON DROPDOWN */
-    .brand-menu {
-      position: relative;
-      display: inline-block;
-    }
-
-    .brand-dropdown {
-      position: absolute;
-      top: 35px;
-      right: 0;
-      background: rgba(0,0,0,0.95);
-      backdrop-filter: blur(15px);
-      border: 1px solid #222;
-      border-radius: 14px;
-      padding: 15px;
-      min-width: 420px;
-      display: none;
-      animation: slideDown 0.3s ease;
-      z-index: 1000;
-    }
-
-    .brand-menu:hover .brand-dropdown {
-      display: block;
-    }
-
-    @keyframes slideDown {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .brand-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-    }
-
-    .brand-item {
-      text-align: center;
-      font-size: 12px;
-      color: #ddd;
-    }
-
-    .brand-item img {
-      width: 100%;
-      border-radius: 8px;
-      border: 1px solid #333;
-      margin-bottom: 5px;
-    }
-
-    footer {
-      border-top: 1px solid #222;
-      text-align: center;
-      padding: 20px;
-      font-size: 13px;
-      color: #888;
-    }
+    @media(min-width:768px){.mobile-menu{display:none}}
   </style>
 </head>
 
@@ -114,95 +84,105 @@
   <img src="logo.jpg">
 
   <nav>
+    <a href="#" onclick="showAll()">Home</a>
 
-    <a href="#">Home</a>
+    <!-- ROYALX -->
+    <div class="brand-menu">
+      <a href="#">RoyalX</a>
+      <div class="brand-dropdown">
+        <div class="brand-grid">
+          <div class="brand-item" onclick="filterProducts('royalx','handsfree')">
+            <img src="25.jpg">Handsfree
+          </div>
+          <div class="brand-item" onclick="filterProducts('royalx','airbuds')">
+            <img src="26.jpg">Airbuds
+          </div>
+          <div class="brand-item" onclick="filterProducts('royalx','charger')">
+            <img src="28.jpg">Charger
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- Jcell -->
     <div class="brand-menu">
       <a href="#">Jcell</a>
       <div class="brand-dropdown">
         <div class="brand-grid">
-          <div class="brand-item"><img src="1.jpg">Handsfree</div>
-          <div class="brand-item"><img src="2.jpg">Airbuds</div>
-          <div class="brand-item"><img src="3.jpg">Headphone</div>
-          <div class="brand-item"><img src="4.jpg">Charger</div>
-          <div class="brand-item"><img src="5.jpg">Adapter</div>
-          <div class="brand-item"><img src="6.jpg">Data Cable</div>
+          <div class="brand-item" onclick="filterProducts('jcell','handsfree')">
+            <img src="1.jpg">Handsfree
+          </div>
+          <div class="brand-item" onclick="filterProducts('jcell','charger')">
+            <img src="3.jpg">Charger
+          </div>
         </div>
       </div>
     </div>
-
-    <!-- Geman -->
-    <div class="brand-menu">
-      <a href="#">Geman</a>
-      <div class="brand-dropdown">
-        <div class="brand-grid">
-          <div class="brand-item"><img src="7.jpg">Handsfree</div>
-          <div class="brand-item"><img src="8.jpg">Airbuds</div>
-          <div class="brand-item"><img src="9.jpg">Headphone</div>
-          <div class="brand-item"><img src="10.jpg">Charger</div>
-          <div class="brand-item"><img src="11.jpg">Adapter</div>
-          <div class="brand-item"><img src="12.jpg">Data Cable</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- KMC -->
-    <div class="brand-menu">
-      <a href="#">KMC</a>
-      <div class="brand-dropdown">
-        <div class="brand-grid">
-          <div class="brand-item"><img src="13.jpg">Handsfree</div>
-          <div class="brand-item"><img src="14.jpg">Airbuds</div>
-          <div class="brand-item"><img src="15.jpg">Headphone</div>
-          <div class="brand-item"><img src="16.jpg">Charger</div>
-          <div class="brand-item"><img src="17.jpg">Adapter</div>
-          <div class="brand-item"><img src="18.jpg">Data Cable</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Ronin -->
-    <div class="brand-menu">
-      <a href="#">Ronin</a>
-      <div class="brand-dropdown">
-        <div class="brand-grid">
-          <div class="brand-item"><img src="19.jpg">Handsfree</div>
-          <div class="brand-item"><img src="20.jpg">Airbuds</div>
-          <div class="brand-item"><img src="21.jpg">Headphone</div>
-          <div class="brand-item"><img src="22.jpg">Charger</div>
-          <div class="brand-item"><img src="23.jpg">Adapter</div>
-          <div class="brand-item"><img src="24.jpg">Data Cable</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- RoyalX -->
-    <div class="brand-menu">
-      <a href="#">RoyalX</a>
-      <div class="brand-dropdown">
-        <div class="brand-grid">
-          <div class="brand-item"><img src="25.jpg">Handsfree</div>
-          <div class="brand-item"><img src="26.jpg">Airbuds</div>
-          <div class="brand-item"><img src="27.jpg">Headphone</div>
-          <div class="brand-item"><img src="28.jpg">Charger</div>
-          <div class="brand-item"><img src="29.jpg">Adapter</div>
-          <div class="brand-item"><img src="30.jpg">Data Cable</div>
-        </div>
-      </div>
-    </div>
-
   </nav>
 </header>
 
 <div class="hero">
   <h1>Premium Mobile Accessories</h1>
-  <p>Jcell • Geman • KMC • Ronin • RoyalX</p>
+  <p>RoyalX • Jcell • Geman • KMC • Ronin</p>
+</div>
+
+<div class="container">
+  <div class="products" id="productList"></div>
 </div>
 
 <footer>
   © 2026 Haider Mobiles • Cash on Delivery Available
 </footer>
+
+<div class="mobile-menu">
+  <a href="#" onclick="showAll()">Home</a>
+  <a href="https://wa.me/923279518790">WhatsApp</a>
+</div>
+
+<script src="products.js"></script>
+
+<script>
+/* dropdown click */
+document.querySelectorAll('.brand-menu>a').forEach(link=>{
+  link.onclick=e=>{
+    e.preventDefault();
+    const p=link.parentElement;
+    document.querySelectorAll('.brand-menu')
+      .forEach(m=>m!==p&&m.classList.remove('active'));
+    p.classList.toggle('active');
+  }
+});
+document.onclick=e=>{
+  if(!e.target.closest('.brand-menu'))
+    document.querySelectorAll('.brand-menu')
+    .forEach(m=>m.classList.remove('active'));
+};
+
+/* render products */
+const list=document.getElementById("productList");
+products.forEach(p=>{
+  list.innerHTML+=`
+  <div class="product" data-brand="${p.brand}" data-category="${p.category}">
+    <img src="${p.img}">
+    <h3>${p.name}</h3>
+    <div class="price">Rs ${p.price}</div>
+    <a class="btn"
+    href="https://wa.me/923279518790?text=I want to order ${p.name}">
+    Order Now</a>
+  </div>`;
+});
+
+function filterProducts(b,c){
+ document.querySelectorAll('.product').forEach(p=>{
+  p.style.display=(p.dataset.brand===b && p.dataset.category===c)
+  ?'block':'none';
+ });
+}
+function showAll(){
+ document.querySelectorAll('.product')
+ .forEach(p=>p.style.display='block');
+}
+</script>
 
 </body>
 </html>
