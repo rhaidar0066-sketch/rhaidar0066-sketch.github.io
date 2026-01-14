@@ -6,23 +6,22 @@
 
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background-color: #f2f2f2;
       margin: 0;
-      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #000;
+      color: #fff;
     }
 
     .container {
-      max-width: 420px;
+      max-width: 480px;
       margin: auto;
-      background: #ffffff;
-      padding: 20px;
-      min-height: 100vh;
+      padding: 15px;
     }
 
     .header {
       text-align: center;
-      margin-bottom: 20px;
+      padding: 20px 0;
+      border-bottom: 1px solid #222;
     }
 
     .header img {
@@ -36,67 +35,66 @@
     }
 
     .header p {
-      color: #555;
+      color: #aaa;
       margin: 0;
+      font-size: 14px;
     }
 
-    .categories {
-      text-align: center;
-      font-size: 14px;
-      color: #777;
-      margin: 15px 0;
+    .section-title {
+      margin: 25px 0 10px;
+      font-size: 18px;
+      border-left: 4px solid #25D366;
+      padding-left: 10px;
     }
 
     .product {
-      border: 1px solid #eee;
+      background: #111;
       border-radius: 10px;
-      padding: 15px;
-      margin-top: 20px;
-      text-align: center;
+      padding: 12px;
+      margin-bottom: 20px;
     }
 
     .product img {
       width: 100%;
-      border-radius: 10px;
+      border-radius: 8px;
       margin-bottom: 10px;
     }
 
     .product h3 {
       margin: 5px 0;
-      font-size: 20px;
+      font-size: 18px;
+    }
+
+    .brand {
+      font-size: 13px;
+      color: #aaa;
     }
 
     .price {
-      font-size: 18px;
-      color: #000;
+      font-size: 16px;
+      margin: 6px 0;
       font-weight: bold;
-      margin: 5px 0;
-    }
-
-    .features {
-      font-size: 14px;
-      color: #555;
-      margin: 10px 0;
     }
 
     .btn {
       display: block;
       width: 100%;
+      text-align: center;
       padding: 12px;
       background: #25D366;
-      color: white;
+      color: #000;
       text-decoration: none;
-      text-align: center;
-      border-radius: 8px;
-      font-size: 16px;
+      border-radius: 6px;
+      font-weight: bold;
       margin-top: 10px;
     }
 
     .footer {
       text-align: center;
       font-size: 13px;
-      color: #777;
-      margin-top: 30px;
+      color: #888;
+      padding: 20px 0;
+      border-top: 1px solid #222;
     }
   </style>
 </head>
@@ -105,32 +103,58 @@
 
   <div class="container">
 
+    <!-- HEADER -->
     <div class="header">
       <img src="logo.jpg">
       <h1>Haider Mobiles</h1>
       <p>Mobile Accessories Store</p>
     </div>
 
-    <div class="categories">
-      Chargers • Handsfree • Covers • Glass • Power Banks
-    </div>
+    <!-- SECTION -->
+    <div class="section-title">Chargers</div>
 
     <div class="product">
       <img src="charger.jpg">
       <h3>Fast Charging Adapter</h3>
+      <div class="brand">Brand: Samsung Compatible</div>
       <div class="price">Rs 1,450</div>
-      <div class="features">
-        ✔ Fast charging<br>
-        ✔ Durable quality
-      </div>
 
       <a class="btn" href="https://wa.me/923279518790?text=I%20want%20to%20order%20Fast%20Charging%20Adapter">
         Order on WhatsApp
       </a>
     </div>
 
+    <!-- SECTION -->
+    <div class="section-title">Handsfree</div>
+
+    <div class="product">
+      <img src="handsfree.jpg">
+      <h3>Wireless Handsfree</h3>
+      <div class="brand">Brand: Lenovo Style</div>
+      <div class="price">Rs 2,200</div>
+
+      <a class="btn" href="https://wa.me/923279518790?text=I%20want%20to%20order%20Wireless%20Handsfree">
+        Order on WhatsApp
+      </a>
+    </div>
+
+    <!-- SECTION -->
+    <div class="section-title">Mobile Covers</div>
+
+    <div class="product">
+      <img src="cover.jpg">
+      <h3>Silicon Mobile Cover</h3>
+      <div class="brand">Brand: iPhone / Samsung</div>
+      <div class="price">Rs 750</div>
+
+      <a class="btn" href="https://wa.me/923279518790?text=I%20want%20to%20order%20Mobile%20Cover">
+        Order on WhatsApp
+      </a>
+    </div>
+
+    <!-- FOOTER -->
     <div class="footer">
-      Cash on Delivery Available – Pakistan
+      Cash on Delivery Available | Pakistan
     </div>
 
   </div>
