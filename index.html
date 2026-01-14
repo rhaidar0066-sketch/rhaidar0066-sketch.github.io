@@ -55,7 +55,7 @@ nav a:hover { color: #25D366; }
 .brand-dropdown {
   position: absolute;
   top: 35px;
-  right: 0;              /* FIX: screen se bahar nahi jayega */
+  right: 0;
   background: rgba(0,0,0,0.95);
   backdrop-filter: blur(16px);
   border: 1px solid #222;
@@ -164,6 +164,66 @@ footer {
       </div>
     </div>
 
+    <!-- Jcell -->
+    <div class="brand-menu">
+      <a onclick="toggleMenu(this)">Jcell</a>
+      <div class="brand-dropdown">
+        <div class="brand-grid">
+          <div class="brand-item"><img src="1.jpg">Handsfree</div>
+          <div class="brand-item"><img src="2.jpg">Airbuds</div>
+          <div class="brand-item"><img src="3.jpg">Headphone</div>
+          <div class="brand-item"><img src="4.jpg">Charger</div>
+          <div class="brand-item"><img src="5.jpg">Adapter</div>
+          <div class="brand-item"><img src="6.jpg">Data Cable</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Geman -->
+    <div class="brand-menu">
+      <a onclick="toggleMenu(this)">Geman</a>
+      <div class="brand-dropdown">
+        <div class="brand-grid">
+          <div class="brand-item"><img src="7.jpg">Handsfree</div>
+          <div class="brand-item"><img src="8.jpg">Airbuds</div>
+          <div class="brand-item"><img src="9.jpg">Headphone</div>
+          <div class="brand-item"><img src="10.jpg">Charger</div>
+          <div class="brand-item"><img src="11.jpg">Adapter</div>
+          <div class="brand-item"><img src="12.jpg">Data Cable</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- KMC -->
+    <div class="brand-menu">
+      <a onclick="toggleMenu(this)">KMC</a>
+      <div class="brand-dropdown">
+        <div class="brand-grid">
+          <div class="brand-item"><img src="13.jpg">Handsfree</div>
+          <div class="brand-item"><img src="14.jpg">Airbuds</div>
+          <div class="brand-item"><img src="15.jpg">Headphone</div>
+          <div class="brand-item"><img src="16.jpg">Charger</div>
+          <div class="brand-item"><img src="17.jpg">Adapter</div>
+          <div class="brand-item"><img src="18.jpg">Data Cable</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ronin -->
+    <div class="brand-menu">
+      <a onclick="toggleMenu(this)">Ronin</a>
+      <div class="brand-dropdown">
+        <div class="brand-grid">
+          <div class="brand-item"><img src="19.jpg">Handsfree</div>
+          <div class="brand-item"><img src="20.jpg">Airbuds</div>
+          <div class="brand-item"><img src="21.jpg">Headphone</div>
+          <div class="brand-item"><img src="22.jpg">Charger</div>
+          <div class="brand-item"><img src="23.jpg">Adapter</div>
+          <div class="brand-item"><img src="24.jpg">Data Cable</div>
+        </div>
+      </div>
+    </div>
+
   </nav>
 </header>
 
@@ -172,11 +232,10 @@ footer {
   <p>RoyalX • Jcell • Geman • KMC • Ronin</p>
 </div>
 
-<!-- PRODUCTS -->
 <div class="container">
   <div class="products">
 
-    <div class="product" data-category="handsfree">
+   <div class="product" data-category="handsfree">
       <img src="34.jpeg">
       <h3>RoyalX Cables RC-310</h3>
       <div class="price">Rs 1,299</div>
@@ -233,6 +292,8 @@ footer {
 </footer>
 
 <script>
+alert("Welcome to Haider Mobiles");
+
 function toggleMenu(el) {
   document.querySelectorAll('.brand-menu').forEach(menu => {
     menu.contains(el) ? menu.classList.toggle('show') : menu.classList.remove('show');
