@@ -8,86 +8,86 @@
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: radial-gradient(circle at top, #111, #000);
+      background: #000;
       color: #fff;
     }
 
-    .container {
-      max-width: 1100px;
-      margin: auto;
-      padding: 20px;
-    }
-
     /* HEADER */
-    .header {
+    header {
+      background: #000;
+      border-bottom: 1px solid #222;
+      padding: 15px 20px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 30px;
     }
 
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
+    header img {
+      height: 45px;
     }
 
-    .logo img {
-      width: 60px;
-    }
-
-    .logo h1 {
-      font-size: 22px;
-      margin: 0;
-    }
-
-    .nav a {
+    nav a {
       color: #ccc;
       text-decoration: none;
       margin-left: 15px;
       font-size: 14px;
     }
 
-    .nav a:hover {
+    nav a:hover {
       color: #25D366;
     }
 
-    /* SECTION TITLE */
-    .section-title {
-      font-size: 22px;
-      margin: 20px 0;
+    /* HERO */
+    .hero {
+      padding: 40px 20px;
+      text-align: center;
+      background: linear-gradient(to bottom, #111, #000);
     }
 
-    /* PRODUCT GRID */
+    .hero h1 {
+      margin: 0;
+      font-size: 30px;
+    }
+
+    .hero p {
+      color: #aaa;
+      font-size: 14px;
+    }
+
+    /* PRODUCTS GRID */
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 30px 20px;
+    }
+
     .products {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+      gap: 25px;
     }
 
-    /* GLASS CARD */
     .product {
-      background: rgba(255,255,255,0.08);
-      backdrop-filter: blur(12px);
-      border-radius: 15px;
+      background: rgba(255,255,255,0.07);
+      backdrop-filter: blur(14px);
+      border-radius: 16px;
       padding: 15px;
-      border: 1px solid rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.12);
       transition: transform 0.3s;
     }
 
     .product:hover {
-      transform: translateY(-5px);
+      transform: translateY(-6px);
     }
 
     .product img {
       width: 100%;
       border-radius: 12px;
-      margin-bottom: 10px;
     }
 
     .product h3 {
-      margin: 5px 0;
-      font-size: 18px;
+      font-size: 16px;
+      margin: 10px 0 4px;
     }
 
     .brand {
@@ -105,7 +105,7 @@
       display: block;
       text-align: center;
       padding: 10px;
-      background: linear-gradient(135deg, #25D366, #1aa34a);
+      background: #25D366;
       color: #000;
       text-decoration: none;
       border-radius: 8px;
@@ -113,74 +113,80 @@
       font-size: 14px;
     }
 
-    .footer {
+    /* FOOTER */
+    footer {
+      border-top: 1px solid #222;
       text-align: center;
+      padding: 20px;
       font-size: 13px;
       color: #888;
-      margin-top: 40px;
-      border-top: 1px solid #222;
-      padding-top: 20px;
     }
-
   </style>
 </head>
 
 <body>
 
+  <!-- HEADER -->
+  <header>
+    <img src="logo.jpg">
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Shop</a>
+      <a href="#">Chargers</a>
+      <a href="#">Handsfree</a>
+      <a href="#">Power Banks</a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <div class="hero">
+    <h1>Premium Mobile Accessories</h1>
+    <p>Chargers • Handsfree • Power Banks • Cables</p>
+  </div>
+
+  <!-- PRODUCTS -->
   <div class="container">
-
-    <!-- HEADER -->
-    <div class="header">
-      <div class="logo">
-        <img src="logo.jpg">
-        <h1>Haider Mobiles</h1>
-      </div>
-
-      <div class="nav">
-        <a href="#">Home</a>
-        <a href="#">Chargers</a>
-        <a href="#">Handsfree</a>
-        <a href="#">Power Banks</a>
-      </div>
-    </div>
-
-    <!-- PRODUCTS -->
-    <div class="section-title">Featured Products</div>
-
     <div class="products">
 
       <div class="product">
-        <img src="charger.jpg">
+        <img src="p1.jpg">
         <h3>Fast Charging Adapter</h3>
-        <div class="brand">Brand: Samsung Compatible</div>
+        <div class="brand">Samsung Compatible</div>
         <div class="price">Rs 1,450</div>
-        <a class="btn" href="https://wa.me/923279518790">Order on WhatsApp</a>
+        <a class="btn" href="https://wa.me/923279518790">Order Now</a>
       </div>
 
       <div class="product">
-        <img src="handsfree.jpg">
+        <img src="p2.jpg">
         <h3>Wireless Handsfree</h3>
-        <div class="brand">Brand: Lenovo Style</div>
+        <div class="brand">Lenovo Style</div>
         <div class="price">Rs 2,200</div>
-        <a class="btn" href="https://wa.me/923279518790">Order on WhatsApp</a>
+        <a class="btn" href="https://wa.me/923279518790">Order Now</a>
       </div>
 
       <div class="product">
-        <img src="powerbank.jpg">
-        <h3>Power Bank 20,000mAh</h3>
-        <div class="brand">Brand: Xiaomi</div>
+        <img src="p3.jpg">
+        <h3>Power Bank 20000mAh</h3>
+        <div class="brand">Xiaomi</div>
         <div class="price">Rs 3,800</div>
-        <a class="btn" href="https://wa.me/923279518790">Order on WhatsApp</a>
+        <a class="btn" href="https://wa.me/923279518790">Order Now</a>
+      </div>
+
+      <div class="product">
+        <img src="p4.jpg">
+        <h3>Type-C Cable</h3>
+        <div class="brand">Original Quality</div>
+        <div class="price">Rs 650</div>
+        <a class="btn" href="https://wa.me/923279518790">Order Now</a>
       </div>
 
     </div>
-
-    <!-- FOOTER -->
-    <div class="footer">
-      © 2026 Haider Mobiles • Cash on Delivery Available
-    </div>
-
   </div>
+
+  <!-- FOOTER -->
+  <footer>
+    © 2026 Haider Mobiles • Cash on Delivery Available
+  </footer>
 
 </body>
 </html>
