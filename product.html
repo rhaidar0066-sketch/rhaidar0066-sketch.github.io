@@ -18,7 +18,7 @@ body{
   padding:40px 20px;
 }
 
-/* TOP SECTION */
+/* TOP */
 .top{
   display:grid;
   grid-template-columns:1fr 1fr;
@@ -29,15 +29,8 @@ body{
   border-radius:16px;
   margin-bottom:15px;
 }
-.price-box del{
-  color:#888;
-  font-size:16px;
-}
-.price-box strong{
-  font-size:26px;
-  display:block;
-  margin:8px 0;
-}
+.price-box del{color:#888}
+.price-box strong{font-size:26px;display:block;margin:8px 0}
 .btn{
   background:#25D366;
   color:#000;
@@ -48,26 +41,24 @@ body{
   font-weight:bold;
   margin-top:15px;
 }
-.back{
-  display:inline-block;
+.back{color:#25D366;cursor:pointer;display:inline-block;margin-top:10px}
+
+/* INFO BOXES */
+.info{
   margin-top:15px;
-  color:#25D366;
-  cursor:pointer;
+  font-size:14px;
+  color:#ccc;
+}
+.highlight{
+  margin-top:10px;
+  font-size:14px;
 }
 
-/* DETAILS */
-.section{
-  margin-top:50px;
-}
-.section h2{
-  margin-bottom:15px;
-}
-ul{
-  padding-left:18px;
-}
-ul li{
-  margin-bottom:6px;
-}
+/* SECTIONS */
+.section{margin-top:50px}
+.section h2{margin-bottom:12px}
+ul{padding-left:18px}
+ul li{margin-bottom:6px}
 
 /* RELATED */
 .related-grid{
@@ -82,17 +73,21 @@ ul li{
   padding:12px;
   cursor:pointer;
 }
-.related-item img{
-  width:100%;
+.related-item img{width:100%;border-radius:10px}
+
+/* FREE SHIPPING BAR */
+.free-ship{
+  background:#111;
+  border:1px solid #222;
+  padding:12px;
+  margin-top:20px;
   border-radius:10px;
-}
-.related-item h4{
   font-size:14px;
-  margin:8px 0 4px;
+  text-align:center;
 }
 
 @media(max-width:768px){
-  .top{grid-template-columns:1fr;}
+  .top{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -104,13 +99,11 @@ ul li{
   <!-- TOP -->
   <div class="top">
 
-    <!-- IMAGES -->
     <div class="gallery">
       <img id="img1">
       <img id="img2">
     </div>
 
-    <!-- INFO -->
     <div>
       <h1 id="name"></h1>
 
@@ -121,89 +114,8 @@ ul li{
 
       <p id="desc"></p>
 
-      <a id="buy" class="btn" target="_blank">Buy on WhatsApp</a><br>
-      <a class="back" onclick="history.back()">← Back</a>
-    </div>
+      <!-- LIVE INFO -->
+      <div class="highlight">👀 <span id="viewing"></span> customers are viewing this product</div>
+      <div class="highlight">🔥 <span id="sold"></span> sold in last 18 hours</div>
 
-  </div>
-
-  <!-- SPECIFICATIONS -->
-  <div class="section">
-    <h2>Specifications</h2>
-    <ul id="specs"></ul>
-  </div>
-
-  <!-- RELATED PRODUCTS -->
-  <div class="section">
-    <h2>Other Products</h2>
-    <div class="related-grid" id="related"></div>
-  </div>
-
-</div>
-
-<script>
-const products = {
-  "royalx-rpd40": {
-    name: "RoyalX Charger RPD-40",
-    oldPrice: "Rs 3200",
-    price: "Rs 2500",
-    desc: "High-performance fast charger designed for modern smartphones and tablets.",
-    images: ["31.jpeg","31b.jpeg"],
-    specs: [
-      "Type-C to Type-C support",
-      "Total Output: 45 Watt",
-      "PD Output: 25 Watt",
-      "USB-A Output: 20 Watt",
-      "Fast & Safe Charging",
-      "Original RoyalX Product"
-    ],
-    related: ["royalx-rh5","royalx-rbt800"]
-  },
-
-  "royalx-rh5": {
-    name: "RoyalX Handfree RH-5",
-    price: "Rs 350",
-    images: ["33.jpeg"]
-  },
-
-  "royalx-rbt800": {
-    name: "RoyalX Airbuds RBT-800",
-    price: "Rs 4500",
-    images: ["28.jpeg"]
-  }
-};
-
-const id = new URLSearchParams(window.location.search).get("id");
-const p = products[id];
-
-if(p){
-  name.innerText = p.name;
-  price.innerText = p.price;
-  oldPrice.innerText = p.oldPrice || "";
-  desc.innerText = p.desc || "";
-
-  img1.src = p.images[0];
-  img2.src = p.images[1] || p.images[0];
-
-  specs.innerHTML = (p.specs || []).map(s=>`<li>${s}</li>`).join("");
-
-  buy.href = "https://wa.me/923279518790?text=" +
-    encodeURIComponent("I want " + p.name);
-
-  if(p.related){
-    related.innerHTML = p.related.map(r=>{
-      const rp = products[r];
-      return `
-        <div class="related-item" onclick="location.href='product.html?id=${r}'">
-          <img src="${rp.images[0]}">
-          <h4>${rp.name}</h4>
-          <div>${rp.price}</div>
-        </div>
-      `;
-    }).join("");
-  }
-}
-</script>
-
-</body>
-</html>
+      <a i
