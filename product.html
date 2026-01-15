@@ -11,7 +11,6 @@ body{
   color:#fff;
   font-family:Arial,sans-serif;
   margin:0;
-  line-height:1.6;
 }
 .container{
   max-width:1200px;
@@ -25,16 +24,34 @@ body{
   grid-template-columns:1.1fr 1fr;
   gap:40px;
 }
-.gallery img{
+
+/* SLIDER */
+.slider{
+  position:relative;
+}
+.slider img{
   width:100%;
   border-radius:16px;
-  margin-bottom:16px;
   border:1px solid #222;
 }
+.arrow{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  background:rgba(0,0,0,0.6);
+  border:1px solid #333;
+  color:#fff;
+  font-size:22px;
+  padding:10px 14px;
+  cursor:pointer;
+  border-radius:50%;
+}
+.arrow.left{left:10px}
+.arrow.right{right:10px}
 
 /* PRICE */
-.price-box del{color:#777;font-size:15px}
-.price-box strong{font-size:28px;display:block;margin-top:5px}
+.price-box del{color:#777}
+.price-box strong{font-size:28px;display:block}
 
 /* BUTTON */
 .btn{
@@ -43,47 +60,24 @@ body{
   padding:15px;
   border-radius:12px;
   display:block;
-  text-decoration:none;
   font-weight:bold;
-  margin-top:18px;
   text-align:center;
+  text-decoration:none;
+  margin-top:18px;
 }
 .back{
-  margin-top:12px;
   display:inline-block;
+  margin-top:12px;
   color:#25D366;
   cursor:pointer;
 }
 
-/* STATS */
+/* INFO */
 .stats{font-size:14px;color:#bbb;margin:6px 0}
-
-/* TRUST */
-.trust{
-  display:flex;
-  gap:12px;
-  flex-wrap:wrap;
-  margin:14px 0;
-  font-size:14px;
-  color:#ccc;
-}
-
-/* FREE SHIPPING */
-.free-ship{
-  background:#111;
-  border:1px solid #222;
-  padding:14px;
-  border-radius:12px;
-  font-size:14px;
-  margin-top:18px;
-  text-align:center;
-}
+.trust{display:flex;gap:12px;flex-wrap:wrap;color:#ccc;margin:14px 0}
 
 /* SECTIONS */
-.section{margin-top:55px}
-.section h2{margin-bottom:12px}
-
-/* SPECS */
+.section{margin-top:50px}
 .spec-grid{
   display:grid;
   grid-template-columns:repeat(auto-fill,minmax(200px,1fr));
@@ -94,26 +88,21 @@ body{
   border:1px solid #222;
   padding:14px;
   border-radius:12px;
-  font-size:14px;
 }
 
-/* RELATED */
 .related-grid{
   display:grid;
   grid-template-columns:repeat(auto-fill,minmax(200px,1fr));
   gap:18px;
 }
 .related-item{
-  background:rgba(255,255,255,0.06);
-  border:1px solid rgba(255,255,255,0.12);
+  background:#0f0f0f;
+  border:1px solid #222;
   border-radius:14px;
   padding:12px;
   cursor:pointer;
 }
-.related-item img{
-  width:100%;
-  border-radius:10px;
-}
+.related-item img{width:100%;border-radius:10px}
 
 @media(max-width:768px){
   .top{grid-template-columns:1fr}
@@ -125,67 +114,52 @@ body{
 
 <div class="container">
 
-  <div class="top">
+<div class="top">
 
-    <!-- IMAGES -->
-    <div class="gallery">
-      <img id="img1" alt="">
-      <img id="img2" alt="">
+  <!-- IMAGE SLIDER -->
+  <div class="slider">
+    <img id="mainImg">
+    <div class="arrow left" onclick="prevImg()">‹</div>
+    <div class="arrow right" onclick="nextImg()">›</div>
+  </div>
+
+  <!-- INFO -->
+  <div>
+    <h1 id="name"></h1>
+
+    <div class="price-box">
+      <del id="oldPrice"></del>
+      <strong id="price"></strong>
     </div>
 
-    <!-- INFO -->
-    <div>
-      <h1 id="name"></h1>
+    <p id="desc"></p>
 
-      <div class="price-box">
-        <del id="oldPrice"></del>
-        <strong id="price"></strong>
-      </div>
+    <div class="stats">👀 <span id="viewing"></span> customers viewing</div>
+    <div class="stats">🔥 <span id="sold"></span> sold recently</div>
 
-      <p id="desc"></p>
-
-      <div class="stats">👀 <span id="viewing"></span> customers viewing</div>
-      <div class="stats">🔥 <span id="sold"></span> sold recently</div>
-
-      <div class="trust">
-        <span>✔ Original</span>
-        <span>🔒 Secure Payment</span>
-        <span>🚚 Fast Shipping</span>
-      </div>
-
-      <a id="buy" class="btn" target="_blank">Buy on WhatsApp</a>
-      <a class="back" onclick="history.back()">← Back</a>
-
-      <div class="free-ship">
-        Spend Rs.1,000 for <strong>Free Shipping</strong>
-      </div>
+    <div class="trust">
+      <span>✔ Original</span>
+      <span>🔒 Secure Payment</span>
+      <span>🚚 Fast Shipping</span>
     </div>
 
+    <a id="buy" class="btn" target="_blank">Buy on WhatsApp</a>
+    <a class="back" onclick="history.back()">← Back</a>
   </div>
 
-  <!-- SHIPPING -->
-  <div class="section">
-    <h2>Shipping Information</h2>
-    <p>No import duties • Ships within 1–2 business days • Eco-friendly packaging</p>
-  </div>
+</div>
 
-  <!-- CARE -->
-  <div class="section">
-    <h2>Care Guide</h2>
-    <p>Use a soft damp cloth. Avoid water & harsh chemicals.</p>
-  </div>
+<!-- SPECIFICATIONS -->
+<div class="section">
+  <h2>Specifications</h2>
+  <div class="spec-grid" id="specs"></div>
+</div>
 
-  <!-- SPECIFICATIONS -->
-  <div class="section">
-    <h2>Specifications</h2>
-    <div class="spec-grid" id="specs"></div>
-  </div>
-
-  <!-- RELATED -->
-  <div class="section">
-    <h2>Other Products</h2>
-    <div class="related-grid" id="related"></div>
-  </div>
+<!-- RELATED -->
+<div class="section">
+  <h2>Other Products</h2>
+  <div class="related-grid" id="related"></div>
+</div>
 
 </div>
 
@@ -195,66 +169,66 @@ const products = {
     name:"RoyalX Charger RPD-40",
     oldPrice:"Rs 3200",
     price:"Rs 2500",
-    desc:"Premium fast charger with powerful output and advanced safety protection.",
-    images:["31.jpeg","31b.jpeg"],
+    desc:"Fast charger with 45W output and advanced safety protection.",
+    images:["31.jpeg","31b.jpeg","31c.jpeg"],
     specs:[
       "Type-C to Type-C",
       "Total Output: 45W",
       "PD Output: 25W",
       "USB-A Output: 20W",
-      "Fast & Safe Charging",
-      "Original RoyalX Product"
+      "Fast & Safe Charging"
     ],
-    related:["royalx-rh5","royalx-rbt800"]
+    related:["royalx-rh5"]
   },
 
   "royalx-rh5":{
     name:"RoyalX Handfree RH-5",
     price:"Rs 350",
     images:["33.jpeg"]
-  },
-
-  "royalx-rbt800":{
-    name:"RoyalX Airbuds RBT-800",
-    price:"Rs 4500",
-    images:["28.jpeg"]
   }
 };
 
 const id = new URLSearchParams(location.search).get("id");
 const p = products[id];
 
+let current = 0;
+
 if(!p){
-  document.querySelector(".container").innerHTML =
-    "<h2>Product not found</h2>";
+  document.querySelector(".container").innerHTML="<h2>Product not found</h2>";
 }else{
   name.textContent = p.name;
   price.textContent = p.price;
   oldPrice.textContent = p.oldPrice || "";
-  desc.textContent = p.desc || "";
-  img1.src = p.images?.[0] || "";
-  img2.src = p.images?.[1] || p.images?.[0] || "";
+  desc.textContent = p.desc;
+  mainImg.src = p.images[0];
 
-  specs.innerHTML = (p.specs||[])
-    .map(s=>`<div class="spec">${s}</div>`).join("");
+  specs.innerHTML = p.specs.map(s=>`<div class="spec">${s}</div>`).join("");
 
   viewing.textContent = Math.floor(Math.random()*15)+5;
   sold.textContent = Math.floor(Math.random()*30)+10;
 
-  buy.href =
-    "https://wa.me/923279518790?text=" +
-    encodeURIComponent("I want " + p.name);
+  buy.href="https://wa.me/923279518790?text="+
+    encodeURIComponent("I want "+p.name);
 
   related.innerHTML = (p.related||[]).map(r=>{
-    const rp = products[r];
+    const rp=products[r];
     return `
       <div class="related-item"
-        onclick="location.href='product.html?id=${r}'">
+       onclick="location.href='product.html?id=${r}'">
         <img src="${rp.images[0]}">
         <h4>${rp.name}</h4>
         <div>${rp.price}</div>
       </div>`;
   }).join("");
+}
+
+function nextImg(){
+  current = (current + 1) % p.images.length;
+  mainImg.src = p.images[current];
+}
+function prevImg(){
+  current = (current - 1 + p.images.length) % p.images.length;
+  mainImg.src = p.images[current];
 }
 </script>
 
