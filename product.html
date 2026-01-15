@@ -41,6 +41,12 @@ body{
   color:#25D366;
   cursor:pointer;
 }
+ul{
+  padding-left:18px;
+}
+ul li{
+  margin-bottom:6px;
+}
 @media(max-width:768px){
   .box{grid-template-columns:1fr;}
 }
@@ -51,15 +57,25 @@ body{
 
 <div class="container">
   <div class="box">
-    <img id="img">
+
+    <!-- Images -->
+    <div>
+      <img id="img">
+      <img id="img2" style="margin-top:15px;">
+    </div>
+
+    <!-- Details -->
     <div>
       <h1 id="name"></h1>
       <h2 id="price"></h2>
       <p id="desc"></p>
 
+      <ul id="details"></ul>
+
       <a id="buy" class="btn" target="_blank">Buy on WhatsApp</a><br>
       <a class="back" onclick="history.back()">← Back</a>
     </div>
+
   </div>
 </div>
 
@@ -69,7 +85,16 @@ const products = {
     name: "RoyalX Charger RPD-40",
     price: "Rs 2500",
     img: "31.jpeg",
-    desc: "Fast charging RoyalX charger with durable quality."
+    img2: "31b.jpeg",
+    desc: "High quality fast charger designed for modern smartphones and devices.",
+    details: [
+      "Type-C to Type-C charging support",
+      "Total Output Power: 45 Watt",
+      "PD Output: 25 Watt",
+      "USB Type-A Output: 20 Watt",
+      "Fast & Safe Charging Technology",
+      "Original RoyalX Product"
+    ]
   }
 };
 
@@ -78,9 +103,13 @@ const p = products[id];
 
 if(p){
   img.src = p.img;
+  img2.src = p.img2;
   name.innerText = p.name;
   price.innerText = p.price;
   desc.innerText = p.desc;
+
+  details.innerHTML = p.details.map(item => `<li>${item}</li>`).join("");
+
   buy.href = "https://wa.me/923279518790?text=" +
     encodeURIComponent("I want " + p.name);
 }
@@ -88,4 +117,3 @@ if(p){
 
 </body>
 </html>
-
