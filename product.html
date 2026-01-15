@@ -1,1 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Product Detail</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body{
+  background:#000;
+  color:#fff;
+  font-family:Arial,sans-serif;
+  margin:0;
+}
+.container{
+  max-width:900px;
+  margin:auto;
+  padding:40px 20px;
+}
+.box{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:30px;
+}
+.box img{
+  width:100%;
+  border-radius:16px;
+}
+.btn{
+  background:#25D366;
+  color:#000;
+  padding:12px;
+  border-radius:10px;
+  display:inline-block;
+  text-decoration:none;
+  font-weight:bold;
+}
+.back{
+  display:inline-block;
+  margin-top:20px;
+  color:#25D366;
+  cursor:pointer;
+}
+@media(max-width:768px){
+  .box{grid-template-columns:1fr;}
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <div class="box">
+    <img id="img">
+    <div>
+      <h1 id="name"></h1>
+      <h2 id="price"></h2>
+      <p id="desc"></p>
+
+      <a id="buy" class="btn" target="_blank">Buy on WhatsApp</a><br>
+      <a class="back" onclick="history.back()">← Back</a>
+    </div>
+  </div>
+</div>
+
+<script>
+const products = {
+  "royalx-rpd40": {
+    name: "RoyalX Charger RPD-40",
+    price: "Rs 2500",
+    img: "31.jpeg",
+    desc: "Fast charging RoyalX charger with durable quality."
+  }
+};
+
+const id = new URLSearchParams(window.location.search).get("id");
+const p = products[id];
+
+if(p){
+  img.src = p.img;
+  name.innerText = p.name;
+  price.innerText = p.price;
+  desc.innerText = p.desc;
+  buy.href = "https://wa.me/923279518790?text=" +
+    encodeURIComponent("I want " + p.name);
+}
+</script>
+
+</body>
+</html>
 
