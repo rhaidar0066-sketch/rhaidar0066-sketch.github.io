@@ -18,7 +18,7 @@ body{
   padding:40px 20px;
 }
 
-/* TOP SECTION */
+/* TOP */
 .top{
   display:grid;
   grid-template-columns:1fr 1fr;
@@ -29,6 +29,8 @@ body{
   border-radius:16px;
   margin-bottom:15px;
 }
+
+/* PRICE */
 .price-box del{
   color:#888;
   font-size:16px;
@@ -36,8 +38,10 @@ body{
 .price-box strong{
   font-size:26px;
   display:block;
-  margin:8px 0;
+  margin:6px 0;
 }
+
+/* BUTTONS */
 .btn{
   background:#25D366;
   color:#000;
@@ -50,17 +54,35 @@ body{
 }
 .back{
   display:inline-block;
-  margin-top:15px;
+  margin-top:10px;
   color:#25D366;
   cursor:pointer;
 }
 
-/* DETAILS */
+/* LIVE INFO */
+.stats{
+  margin:10px 0;
+  font-size:14px;
+  color:#ccc;
+}
+
+/* FREE SHIPPING */
+.free-ship{
+  background:#111;
+  border:1px solid #222;
+  padding:12px;
+  border-radius:10px;
+  font-size:14px;
+  margin-top:15px;
+  text-align:center;
+}
+
+/* SECTIONS */
 .section{
   margin-top:50px;
 }
 .section h2{
-  margin-bottom:15px;
+  margin-bottom:12px;
 }
 ul{
   padding-left:18px;
@@ -86,13 +108,9 @@ ul li{
   width:100%;
   border-radius:10px;
 }
-.related-item h4{
-  font-size:14px;
-  margin:8px 0 4px;
-}
 
 @media(max-width:768px){
-  .top{grid-template-columns:1fr;}
+  .top{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -121,10 +139,43 @@ ul li{
 
       <p id="desc"></p>
 
+      <div class="stats">👀 <span id="viewing"></span> customers are viewing this product</div>
+      <div class="stats">🔥 <span id="sold"></span> sold in last 18 hours</div>
+
       <a id="buy" class="btn" target="_blank">Buy on WhatsApp</a><br>
       <a class="back" onclick="history.back()">← Back</a>
+
+      <div class="free-ship">
+        Spend Rs.1,000.00 for <strong>Free Shipping</strong>
+      </div>
     </div>
 
+  </div>
+
+  <!-- SHIPPING -->
+  <div class="section">
+    <h2>Shipping Information</h2>
+    <ul>
+      <li>No import duties.</li>
+      <li>Ships within 1–2 business days.</li>
+      <li>Eco-friendly recyclable & biodegradable packaging.</li>
+    </ul>
+  </div>
+
+  <!-- CARE -->
+  <div class="section">
+    <h2>Care Guide</h2>
+    <p>
+      Use a slightly damp, soft and lint-free cloth for regular dust removal.
+      Always clean gently and avoid harsh chemicals.
+    </p>
+  </div>
+
+  <!-- MATERIAL -->
+  <div class="section">
+    <h2>Material & Safety</h2>
+    <p>55% Linen, 45% Rayon</p>
+    <p>🔒 Secure & trusted payment</p>
   </div>
 
   <!-- SPECIFICATIONS -->
@@ -133,7 +184,7 @@ ul li{
     <ul id="specs"></ul>
   </div>
 
-  <!-- RELATED PRODUCTS -->
+  <!-- RELATED -->
   <div class="section">
     <h2>Other Products</h2>
     <div class="related-grid" id="related"></div>
@@ -150,45 +201,30 @@ const products = {
     desc: "High-performance fast charger designed for modern smartphones and tablets.",
     images: ["31.jpeg","31b.jpeg"],
     specs: [
-      "Type-C to Type-C support",
-      "Total Output: 45 Watt",
-      "PD Output: 25 Watt",
-      "USB-A Output: 20 Watt",
-      "Fast & Safe Charging",
+      "Type-C to Type-C charging",
+      "Total Output: 45W",
+      "PD Output: 25W",
+      "USB-A Output: 20W",
+      "Fast & Safe Charging Protection",
       "Original RoyalX Product"
     ],
-    related: ["royalx-rh5","royalx-rbt800"]
+    related:["royalx-rh5","royalx-rbt800"]
   },
 
-  "royalx-rh5": {
-    name: "RoyalX Handfree RH-5",
-    price: "Rs 350",
-    images: ["33.jpeg"]
+  "royalx-rh5":{
+    name:"RoyalX Handfree RH-5",
+    price:"Rs 350",
+    images:["33.jpeg"]
   },
 
-  "royalx-rbt600": {
-    name: "RoyalX Airbuds RBT-600",
-    price: "Rs 4500",
-    images: ["28.jpeg"]
-  },
-  "royalx-rbt800": {
-    name: "RoyalX Airbuds RBT-800",
-    price: "Rs 4500",
-    images: ["28.jpeg"]
-  },
-  "royalx-rbt800": {
-    name: "RoyalX Airbuds RBT-800",
-    price: "Rs 4500",
-    images: ["28.jpeg"]
-  },
-  "royalx-rbt800": {
-    name: "RoyalX Airbuds RBT-800",
-    price: "Rs 4500",
-    images: ["28.jpeg"]
+  "royalx-rbt800":{
+    name:"RoyalX Airbuds RBT-800",
+    price:"Rs 4500",
+    images:["28.jpeg"]
   }
 };
 
-const id = new URLSearchParams(window.location.search).get("id");
+const id = new URLSearchParams(location.search).get("id");
 const p = products[id];
 
 if(p){
@@ -196,27 +232,24 @@ if(p){
   price.innerText = p.price;
   oldPrice.innerText = p.oldPrice || "";
   desc.innerText = p.desc || "";
-
   img1.src = p.images[0];
   img2.src = p.images[1] || p.images[0];
-
-  specs.innerHTML = (p.specs || []).map(s=>`<li>${s}</li>`).join("");
+  specs.innerHTML = p.specs.map(s=>`<li>${s}</li>`).join("");
+  viewing.innerText = Math.floor(Math.random()*20)+5;
+  sold.innerText = Math.floor(Math.random()*50)+10;
 
   buy.href = "https://wa.me/923279518790?text=" +
     encodeURIComponent("I want " + p.name);
 
-  if(p.related){
-    related.innerHTML = p.related.map(r=>{
-      const rp = products[r];
-      return `
-        <div class="related-item" onclick="location.href='product.html?id=${r}'">
-          <img src="${rp.images[0]}">
-          <h4>${rp.name}</h4>
-          <div>${rp.price}</div>
-        </div>
-      `;
-    }).join("");
-  }
+  related.innerHTML = (p.related||[]).map(r=>{
+    const rp = products[r];
+    return `
+      <div class="related-item" onclick="location.href='product.html?id=${r}'">
+        <img src="${rp.images[0]}">
+        <h4>${rp.name}</h4>
+        <div>${rp.price}</div>
+      </div>`;
+  }).join("");
 }
 </script>
 
