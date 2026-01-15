@@ -6,96 +6,138 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-*{box-sizing:border-box}
-body{margin:0;font-family:Arial,sans-serif;background:#000;color:#fff}
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #000;
+  color: #fff;
+}
 
 /* HEADER */
-header{
-  background:#000;
-  border-bottom:1px solid #222;
-  padding:15px 20px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between
+header {
+  background: #000;
+  border-bottom: 1px solid #222;
+  padding: 15px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
-header img{height:45px}
 
-nav{display:flex;align-items:center;gap:18px}
-nav a{color:#ccc;text-decoration:none;font-size:14px;cursor:pointer}
-nav a:hover{color:#25D366}
+header img { height: 45px; }
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+nav a {
+  color: #ccc;
+  text-decoration: none;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+nav a:hover { color: #25D366; }
 
 /* HERO */
-.hero{
-  padding:50px 20px;
-  text-align:center;
-  background:linear-gradient(to bottom,#111,#000)
+.hero {
+  padding: 50px 20px;
+  text-align: center;
+  background: linear-gradient(to bottom, #111, #000);
 }
 
 /* DROPDOWN */
-.brand-menu{position:relative}
-.brand-dropdown{
-  position:absolute;
-  top:35px;
-  right:0;
-  background:rgba(0,0,0,.95);
-  backdrop-filter:blur(16px);
-  border:1px solid #222;
-  border-radius:14px;
-  padding:15px;
-  min-width:360px;
-  display:none;
-  z-index:999
-}
-.brand-menu.show .brand-dropdown{display:block}
+.brand-menu { position: relative; }
 
-.brand-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:12px
+.brand-dropdown {
+  position: absolute;
+  top: 35px;
+  right: 0;
+  background: rgba(0,0,0,0.95);
+  backdrop-filter: blur(16px);
+  border: 1px solid #222;
+  border-radius: 14px;
+  padding: 15px;
+  min-width: 360px;
+  display: none;
+  z-index: 999;
 }
-.brand-item{text-align:center;font-size:12px;color:#ddd;cursor:pointer}
-.brand-item img{
-  width:100%;
-  border-radius:8px;
-  border:1px solid #333;
-  margin-bottom:5px;
-  transition:.3s
+
+.brand-menu.show .brand-dropdown { display: block; }
+
+.brand-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
 }
-.brand-item img:hover{transform:scale(1.05)}
+
+.brand-item {
+  text-align: center;
+  font-size: 12px;
+  color: #ddd;
+  cursor: pointer;
+}
+
+.brand-item img {
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid #333;
+  margin-bottom: 5px;
+  transition: transform 0.3s;
+}
+
+.brand-item img:hover { transform: scale(1.05); }
 
 /* PRODUCTS */
-.container{max-width:1200px;margin:auto;padding:40px 20px}
-.products{
-  display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
-  gap:20px
-}
-.product{
-  background:rgba(255,255,255,.07);
-  border:1px solid rgba(255,255,255,.12);
-  border-radius:16px;
-  padding:15px
-}
-.product img{width:100%;border-radius:12px}
-.product h3{font-size:15px;margin:10px 0 5px}
-.price{font-weight:bold;margin-bottom:8px}
-.btn{
-  display:block;
-  text-align:center;
-  background:#25D366;
-  color:#000;
-  padding:8px;
-  border-radius:8px;
-  text-decoration:none;
-  font-size:14px
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 40px 20px;
 }
 
-footer{
-  border-top:1px solid #222;
-  text-align:center;
-  padding:20px;
-  font-size:13px;
-  color:#888
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px,1fr));
+  gap: 20px;
+}
+
+.product {
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 16px;
+  padding: 15px;
+}
+
+.product img {
+  width: 100%;
+  border-radius: 12px;
+}
+
+.product h3 { font-size: 15px; margin: 10px 0 5px; }
+
+.price { font-weight: bold; margin-bottom: 8px; }
+
+.btn {
+  display: block;
+  text-align: center;
+  background: #25D366;
+  color: #000;
+  padding: 8px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+footer {
+  border-top: 1px solid #222;
+  text-align: center;
+  padding: 20px;
+  font-size: 13px;
+  color: #888;
 }
 </style>
 </head>
@@ -104,9 +146,13 @@ footer{
 
 <header>
   <img src="logo.jpg">
+
   <nav>
     <a onclick="showAll()">Home</a>
 
+    <input type="text" id="searchInput" placeholder="Search products..." onkeyup="searchProducts()" style="background:#111;border:1px solid #333;color:#fff;padding:6px 10px;border-radius:8px;font-size:13px;outline:none;">
+
+    <!-- RoyalX -->
     <div class="brand-menu">
       <a onclick="toggleMenu(this)">RoyalX</a>
       <div class="brand-dropdown">
@@ -120,6 +166,67 @@ footer{
         </div>
       </div>
     </div>
+
+    <!-- Jcell -->
+    <div class="brand-menu">
+      <a onclick="toggleMenu(this)">Jcell</a>
+      <div class="brand-dropdown">
+        <div class="brand-grid">
+          <div class="brand-item"><img src="1.jpg">Handsfree</div>
+          <div class="brand-item"><img src="2.jpg">Airbuds</div>
+          <div class="brand-item"><img src="3.jpg">Headphone</div>
+          <div class="brand-item"><img src="4.jpg">Charger</div>
+          <div class="brand-item"><img src="5.jpg">Adapter</div>
+          <div class="brand-item"><img src="6.jpg">Data Cable</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Geman -->
+    <div class="brand-menu">
+      <a onclick="toggleMenu(this)">Geman</a>
+      <div class="brand-dropdown">
+        <div class="brand-grid">
+          <div class="brand-item"><img src="7.jpg">Handsfree</div>
+          <div class="brand-item"><img src="8.jpg">Airbuds</div>
+          <div class="brand-item"><img src="9.jpg">Headphone</div>
+          <div class="brand-item"><img src="10.jpg">Charger</div>
+          <div class="brand-item"><img src="11.jpg">Adapter</div>
+          <div class="brand-item"><img src="12.jpg">Data Cable</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- KMC -->
+    <div class="brand-menu">
+      <a onclick="toggleMenu(this)">KMC</a>
+      <div class="brand-dropdown">
+        <div class="brand-grid">
+          <div class="brand-item"><img src="13.jpg">Handsfree</div>
+          <div class="brand-item"><img src="14.jpg">Airbuds</div>
+          <div class="brand-item"><img src="15.jpg">Headphone</div>
+          <div class="brand-item"><img src="16.jpg">Charger</div>
+          <div class="brand-item"><img src="17.jpg">Adapter</div>
+          <div class="brand-item"><img src="18.jpg">Data Cable</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ronin -->
+    <div class="brand-menu">
+      <a onclick="toggleMenu(this)">Ronin</a>
+      <div class="brand-dropdown">
+        <div class="brand-grid">
+          <div class="brand-item"><img src="19.jpg">Handsfree</div>
+          <div class="brand-item"><img src="20.jpg">Airbuds</div>
+          <div class="brand-item"><img src="21.jpg">Headphone</div>
+          <div class="brand-item"><img src="22.jpg">Charger</div>
+          <div class="brand-item"><img src="23.jpg">Adapter</div>
+          <div class="brand-item"><img src="24.jpg">Data Cable</div>
+        </div>
+      </div>
+    </div>
+
   </nav>
 </header>
 
