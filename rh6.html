@@ -162,6 +162,7 @@ body{
 <script>
 /* PRODUCT DATA — HANDSFREE (TYPE-C) */
 const products = {
+
   "royalx-rh6":{
     name:"RoyalX Handfree RH-6 (Type-C)",
     oldPrice:"Rs 1500",
@@ -180,7 +181,7 @@ const products = {
       "Compatible with Type-C Android Devices"
     ],
 
-    related:["royalx-rh5"]
+    related:["royalx-rh5","royalx-rh9","royalx-rbt800","royalx-rbt400"]
   },
 
   "royalx-rh5":{
@@ -189,24 +190,24 @@ const products = {
     images:["33.jpeg"]
   },
 
-  "royalx-rh5":{
-    name:"RoyalX Handfree RH-5",
-    price:"Rs 350",
+  "royalx-rh9":{
+    name:"RoyalX Handfree RH-9",
+    price:"Rs 750",
     images:["26.jpeg"]
   },
 
-  
-  "royalx-rh5":{
-    name:"RoyalX Handfree RH-5",
-    price:"Rs 350",
+  "royalx-rbt800":{
+    name:"RoyalX Airbuds RBT-800",
+    price:"Rs 4500",
     images:["28.jpeg"]
   },
 
-  "royalx-rh5":{
-    name:"RoyalX Handfree RH-5",
-    price:"Rs 350",
+  "royalx-rbt400":{
+    name:"RoyalX Airbuds RBT-400",
+    price:"Rs 5000",
     images:["29.jpeg"]
   }
+
 };
 
 /* PAGE LOGIC */
@@ -217,25 +218,23 @@ let current = 0;
 if(!p){
   document.querySelector(".container").innerHTML = "<h2>Product not found</h2>";
 }else{
-  document.getElementById("name").textContent = p.name;
-  document.getElementById("price").textContent = p.price;
-  document.getElementById("oldPrice").textContent = p.oldPrice || "";
-  document.getElementById("desc").textContent = p.desc;
-  document.getElementById("mainImg").src = p.images[0];
+  name.textContent = p.name;
+  price.textContent = p.price;
+  oldPrice.textContent = p.oldPrice || "";
+  desc.textContent = p.desc;
+  mainImg.src = p.images[0];
 
-  document.getElementById("specs").innerHTML =
-    p.specs.map(s => `<div class="spec">${s}</div>`).join("");
+  specs.innerHTML =
+    (p.specs||[]).map(s => `<div class="spec">${s}</div>`).join("");
 
-  document.getElementById("viewing").textContent =
-    Math.floor(Math.random()*15)+5;
-  document.getElementById("sold").textContent =
-    Math.floor(Math.random()*30)+10;
+  viewing.textContent = Math.floor(Math.random()*15)+5;
+  sold.textContent = Math.floor(Math.random()*30)+10;
 
-  document.getElementById("buy").href =
+  buy.href =
     "https://wa.me/923279518790?text=" +
     encodeURIComponent("I want " + p.name);
 
-  document.getElementById("related").innerHTML =
+  related.innerHTML =
     (p.related||[]).map(r=>{
       const rp = products[r];
       return `
@@ -251,11 +250,11 @@ if(!p){
 /* SLIDER */
 function nextImg(){
   current = (current + 1) % p.images.length;
-  document.getElementById("mainImg").src = p.images[current];
+  mainImg.src = p.images[current];
 }
 function prevImg(){
   current = (current - 1 + p.images.length) % p.images.length;
-  document.getElementById("mainImg").src = p.images[current];
+  mainImg.src = p.images[current];
 }
 </script>
 
