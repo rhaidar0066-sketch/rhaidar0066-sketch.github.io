@@ -6,27 +6,131 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-*{box-sizing:border-box}
+* { box-sizing: border-box; }
 
-body{
-  margin:0;
-  font-family:Arial,sans-serif;
-  background:#000;
-  color:#fff;
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #000;
+  color: #fff;
 }
 
-/* ================= HEADER ================= */
-header{
-  background:#000;
-  border-bottom:1px solid #222;
-  padding:15px 20px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
+/* HEADER */
+header {
+  background: #000;
+  border-bottom: 1px solid #222;
+  padding: 15px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-header img{height:45px}
+header img { height: 45px; }
 
+nav {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+nav a {
+  color: #ccc;
+  text-decoration: none;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+nav a:hover { color: #25D366; }
+
+/* HERO */
+.hero {
+  padding: 50px 20px;
+  text-align: center;
+  background: linear-gradient(to bottom, #111, #000);
+}
+
+/* DROPDOWN */
+.brand-menu { position: relative; }
+
+.brand-dropdown {
+  position: absolute;
+  top: 35px;
+  right: 0;
+  background: rgba(0,0,0,0.95);
+  backdrop-filter: blur(16px);
+  border: 1px solid #222;
+  border-radius: 14px;
+  padding: 15px;
+  min-width: 360px;
+  display: none;
+  z-index: 999;
+}
+
+.brand-menu.show .brand-dropdown { display: block; }
+
+.brand-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.brand-item {
+  text-align: center;
+  font-size: 12px;
+  color: #ddd;
+  cursor: pointer;
+}
+
+.brand-item img {
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid #333;
+  margin-bottom: 5px;
+  transition: transform 0.3s;
+}
+
+.brand-item img:hover { transform: scale(1.05); }
+
+/* PRODUCTS */
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 40px 20px;
+}
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px,1fr));
+  gap: 20px;
+}
+
+.product {
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 16px;
+  padding: 15px;
+}
+
+.product img {
+  width: 100%;
+  border-radius: 12px;
+}
+
+.product h3 { font-size: 15px; margin: 10px 0 5px; }
+
+.price { font-weight: bold; margin-bottom: 8px; }
+
+.btn {
+  display: block;
+  text-align: center;
+  background: #25D366;
+  color: #000;
+  padding: 8px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 14px;
+}
 .store-name{
   margin-left:12px;
   font-size:18px;
@@ -35,203 +139,12 @@ header img{height:45px}
   letter-spacing:1px;
 }
 
-/* ================= NAV ================= */
-nav{
-  display:flex;
-  align-items:center;
-  gap:18px;
-  flex-wrap:wrap;
-}
-
-nav a{
-  color:#ccc;
-  text-decoration:none;
-  font-size:14px;
-  cursor:pointer;
-}
-nav a:hover{color:#25D366}
-
-/* ================= HERO ================= */
-.hero{
-  padding:50px 20px;
-  text-align:center;
-  background:linear-gradient(to bottom,#111,#000);
-}
-
-/* ================= DROPDOWN ================= */
-.brand-menu{position:relative}
-
-.brand-dropdown{
-  position:absolute;
-  top:35px;
-  right:0;
-  background:rgba(0,0,0,.95);
-  backdrop-filter:blur(16px);
-  border:1px solid #222;
-  border-radius:14px;
-  padding:15px;
-  min-width:360px;
-  display:none;
-  z-index:999;
-}
-
-.brand-menu.show .brand-dropdown{display:block}
-
-.brand-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:12px;
-}
-
-.brand-item{
-  text-align:center;
-  font-size:12px;
-  color:#ddd;
-  cursor:pointer;
-}
-
-.brand-item img{
-  width:100%;
-  border-radius:8px;
-  border:1px solid #333;
-  margin-bottom:5px;
-  transition:.3s;
-}
-.brand-item img:hover{transform:scale(1.05)}
-
-/* ================= PRODUCTS DESKTOP ================= */
-.container{
-  max-width:1200px;
-  margin:auto;
-  padding:40px 20px;
-}
-
-.products{
-  display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
-  gap:20px;
-}
-
-.product{
-  background:rgba(255,255,255,.07);
-  border:1px solid rgba(255,255,255,.12);
-  border-radius:16px;
-  padding:15px;
-}
-
-.product img{
-  width:100%;
-  border-radius:12px;
-}
-
-.product h3{
-  font-size:15px;
-  margin:10px 0 5px;
-}
-
-.price{
-  font-weight:bold;
-  margin-bottom:8px;
-}
-
-.btn{
-  display:block;
-  text-align:center;
-  background:#25D366;
-  color:#000;
-  padding:8px;
-  border-radius:8px;
-  text-decoration:none;
-  font-size:14px;
-}
-
-/* ================= MOBILE CATEGORY BAR ================= */
-.mobile-categories{
-  display:none;
-  overflow-x:auto;
-  gap:10px;
-  padding:12px;
-  background:#000;
-  border-bottom:1px solid #222;
-}
-.mobile-categories::-webkit-scrollbar{display:none}
-
-.mobile-cat{
-  flex:0 0 auto;
-  padding:8px 14px;
-  border-radius:20px;
-  background:#111;
-  border:1px solid #333;
-  font-size:13px;
-  color:#fff;
-  white-space:nowrap;
-  cursor:pointer;
-}
-
-/* ================= MOBILE SLIDER ================= */
-.mobile-only{display:none}
-
-@media(max-width:768px){
-  nav{display:none}
-  .mobile-categories{display:flex}
-  .container{display:none}
-  .mobile-only{display:block}
-}
-
-.mobile-section{margin:30px 0}
-.mobile-section h2{
-  font-size:16px;
-  margin:0 0 12px 6px;
-}
-
-.mobile-slider{
-  display:flex;
-  gap:14px;
-  overflow-x:auto;
-  scroll-snap-type:x mandatory;
-  padding:6px;
-}
-.mobile-slider::-webkit-scrollbar{display:none}
-
-.mobile-card{
-  min-width:160px;
-  background:#111;
-  border-radius:16px;
-  padding:12px;
-  scroll-snap-align:start;
-  text-align:center;
-}
-
-.mobile-card img{
-  width:100%;
-  border-radius:12px;
-  margin-bottom:8px;
-}
-
-.mobile-price{
-  font-size:14px;
-  font-weight:bold;
-  margin:6px 0;
-}
-
-.mobile-buy{
-  display:block;
-  background:#25D366;
-  color:#000;
-  padding:8px;
-  border-radius:10px;
-  text-decoration:none;
-  font-size:13px;
-  font-weight:bold;
-}
-
-/* ================= FOOTER ================= */
-footer{
-  border-top:1px solid #222;
-  text-align:center;
-  padding:20px;
-  font-size:14px;
-  color:#888;
+footer {
+  border-top: 1px solid #222;
+  text-align: center;
+  padding: 20px;
+  font-size: 15px;
+  color: #888;
 }
 </style>
 </head>
@@ -244,91 +157,142 @@ footer{
 
   <nav>
     <a onclick="showAll()">Home</a>
-    <input type="text" placeholder="Search..." style="background:#111;border:1px solid #333;color:#fff;padding:6px 10px;border-radius:8px">
+
+    <input type="text" id="searchInput" placeholder="Search products..." onkeyup="searchProducts()" style="background:#111;border:1px solid #333;color:#fff;padding:6px 10px;border-radius:8px;font-size:13px;outline:none;">
+
+    <!-- RoyalX -->
+    <div class="brand-menu">
+      <a onclick="toggleMenu(this)">RoyalX</a>
+      <div class="brand-dropdown">
+        <div class="brand-grid">
+          <div class="brand-item" onclick="filterProducts('handsfree')"><img src="25.jpg">Handsfree</div>
+          <div class="brand-item" onclick="filterProducts('airbuds')"><img src="26.jpg">Airbuds</div>
+          <div class="brand-item" onclick="filterProducts('headphone')"><img src="27.jpg">Headphone</div>
+          <div class="brand-item" onclick="filterProducts('charger')"><img src="28.jpg">Charger</div>
+          <div class="brand-item" onclick="filterProducts('adapter')"><img src="29.jpg">Adapter</div>
+          <div class="brand-item" onclick="filterProducts('cable')"><img src="30.jpg">Data Cable</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Jcell -->
+    <div class="brand-menu">
+      <a onclick="toggleMenu(this)">Jcell</a>
+      <div class="brand-dropdown">
+        <div class="brand-grid">
+          <div class="brand-item"><img src="1.jpg">Handsfree</div>
+          <div class="brand-item"><img src="2.jpg">Airbuds</div>
+          <div class="brand-item"><img src="3.jpg">Headphone</div>
+          <div class="brand-item"><img src="4.jpg">Charger</div>
+          <div class="brand-item"><img src="5.jpg">Adapter</div>
+          <div class="brand-item"><img src="6.jpg">Data Cable</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Geman -->
+    <div class="brand-menu">
+      <a onclick="toggleMenu(this)">Geman</a>
+      <div class="brand-dropdown">
+        <div class="brand-grid">
+          <div class="brand-item"><img src="7.jpg">Handsfree</div>
+          <div class="brand-item"><img src="8.jpg">Airbuds</div>
+          <div class="brand-item"><img src="9.jpg">Headphone</div>
+          <div class="brand-item"><img src="10.jpg">Charger</div>
+          <div class="brand-item"><img src="11.jpg">Adapter</div>
+          <div class="brand-item"><img src="12.jpg">Data Cable</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- KMC -->
+    <div class="brand-menu">
+      <a onclick="toggleMenu(this)">KMC</a>
+      <div class="brand-dropdown">
+        <div class="brand-grid">
+          <div class="brand-item"><img src="13.jpg">Handsfree</div>
+          <div class="brand-item"><img src="14.jpg">Airbuds</div>
+          <div class="brand-item"><img src="15.jpg">Headphone</div>
+          <div class="brand-item"><img src="16.jpg">Charger</div>
+          <div class="brand-item"><img src="17.jpg">Adapter</div>
+          <div class="brand-item"><img src="18.jpg">Data Cable</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ronin -->
+    <div class="brand-menu">
+      <a onclick="toggleMenu(this)">Ronin</a>
+      <div class="brand-dropdown">
+        <div class="brand-grid">
+          <div class="brand-item"><img src="19.jpg">Handsfree</div>
+          <div class="brand-item"><img src="20.jpg">Airbuds</div>
+          <div class="brand-item"><img src="21.jpg">Headphone</div>
+          <div class="brand-item"><img src="22.jpg">Charger</div>
+          <div class="brand-item"><img src="23.jpg">Adapter</div>
+          <div class="brand-item"><img src="24.jpg">Data Cable</div>
+        </div>
+      </div>
+    </div>
+
   </nav>
 </header>
-
-<!-- MOBILE CATEGORY BAR -->
-<div class="mobile-categories">
-  <div class="mobile-cat">Handsfree</div>
-  <div class="mobile-cat">Airbuds</div>
-  <div class="mobile-cat">Chargers</div>
-  <div class="mobile-cat">Data Cable</div>
-  <div class="mobile-cat">Adapter</div>
-  <div class="mobile-cat">Neckband</div>
-  <div class="mobile-cat">Powerbank</div>
-</div>
 
 <div class="hero">
   <h1>Premium Mobile Accessories</h1>
   <p>RoyalX • Jcell • Geman • KMC • Ronin</p>
 </div>
 
-<!-- ================= MOBILE VIEW ================= -->
-<div class="mobile-only">
-
-  <div class="mobile-section">
-    <h2>Handsfree</h2>
-    <div class="mobile-slider">
-      <div class="mobile-card">
-        <img src="33.jpeg">
-        <div class="mobile-price">Rs 350</div>
-        <a class="mobile-buy" href="rh5.html">Buy</a>
-      </div>
-      <div class="mobile-card">
-        <img src="32.jpeg">
-        <div class="mobile-price">Rs 900</div>
-        <a class="mobile-buy" href="rh6.html?id=royalx-rh6">Buy</a>
-      </div>
-      <div class="mobile-card">
-        <img src="26.jpeg">
-        <div class="mobile-price">Rs 750</div>
-        <a class="mobile-buy" href="rh9.html">Buy</a>
-      </div>
-    </div>
-  </div>
-
-  <div class="mobile-section">
-    <h2>Airbuds</h2>
-    <div class="mobile-slider">
-      <div class="mobile-card">
-        <img src="28.jpeg">
-        <div class="mobile-price">Rs 4500</div>
-        <a class="mobile-buy" href="rbt800.html">Buy</a>
-      </div>
-      <div class="mobile-card">
-        <img src="29.jpeg">
-        <div class="mobile-price">Rs 5000</div>
-        <a class="mobile-buy" href="rbt400.html">Buy</a>
-      </div>
-    </div>
-  </div>
-
-</div>
-
-<!-- ================= DESKTOP PRODUCTS ================= -->
 <div class="container">
 <div class="products">
 
-  <div class="product">
-    <img src="34.jpeg">
-    <h3>RoyalX Cable RC-310</h3>
+  <div class="product" data-category="Cables">
+    <a href="rc310.html"><img src="34.jpeg"></a>
+    <h3><a href="rc310.html" style="color:#fff;text-decoration:none">RoyalX Cable RC-310</a></h3>
     <div class="price">Rs 1250</div>
-    <a class="btn" href="#">Order</a>
+    <a class="btn" href="https://wa.me/923279518790">Order</a>
   </div>
 
-  <div class="product">
-    <img src="33.jpeg">
-    <h3>RoyalX Handfree RH-5</h3>
+  <div class="product" data-category="Handfree">
+    <a href="rh5.html"><img src="33.jpeg"></a>
+    <h3><a href="rh5.html" style="color:#fff;text-decoration:none">RoyalX Handfree RH-5</a></h3>
     <div class="price">Rs 350</div>
-    <a class="btn" href="#">Order</a>
+    <a class="btn" href="https://wa.me/923279518790">Order</a>
   </div>
 
-  <div class="product">
-    <img src="32.jpeg">
-    <h3>RoyalX Handfree RH-6</h3>
+  <div class="product" data-category="Airbuds">
+    <a href="product.html?id=royalx-rpd40"><img src="31.jpeg"></a>
+    <h3><a href="product.html?id=royalx-rpd40" style="color:#fff;text-decoration:none">RoyalX Charger RPD-40</a></h3>
+    <div class="price">Rs 2500</div>
+    <a class="btn" href="https://wa.me/923279518790">Order</a>
+  </div>
+
+  <div class="product" data-category="handsfree">
+    <a href="rh6.html?id=royalx-rh6"><img src="32.jpeg"></a>
+    <h3><a href="rh6.html?id=royalx-rh6" style="color:#fff;text-decoration:none">RoyalX Handfree RH-6</a></h3>
     <div class="price">Rs 900</div>
-    <a class="btn" href="#">Order</a>
+    <a class="btn" href="https://wa.me/923279518790">Order</a>
+  </div>
+
+  <div class="product" data-category="Handfree">
+    <a href="rh9.html"><img src="26.jpeg"></a>
+    <h3><a href="rh9.html" style="color:#fff;text-decoration:none">RoyalX Handfree RH-9</a></h3>
+    <div class="price">Rs 750</div>
+    <a class="btn" href="https://wa.me/923279518790">Order</a>
+  </div>
+
+  <div class="product" data-category="Airbuds">
+    <a href="rbt800.html"><img src="28.jpeg"></a>
+    <h3><a href="rbt800.html" style="color:#fff;text-decoration:none">RoyalX Airbuds RBT-800</a></h3>
+    <div class="price">Rs 4500</div>
+    <a class="btn" href="https://wa.me/923279518790">Order</a>
+  </div>
+
+  <div class="product" data-category="Airbuds">
+    <a href="rbt400.html"><img src="29.jpeg"></a>
+    <h3><a href="rbt400.html" style="color:#fff;text-decoration:none">RoyalX Airbuds RBT-400</a></h3>
+    <div class="price">Rs 5000</div>
+    <a class="btn" href="https://wa.me/923279518790">Order</a>
   </div>
 
 </div>
@@ -341,8 +305,22 @@ footer{
 <script>
 alert("Welcome to Haider Mobiles");
 
+function toggleMenu(el){
+  document.querySelectorAll('.brand-menu').forEach(m=>{
+    m.contains(el)?m.classList.toggle('show'):m.classList.remove('show')
+  })
+}
+document.addEventListener('click',e=>{
+  if(!e.target.closest('.brand-menu'))
+    document.querySelectorAll('.brand-menu').forEach(m=>m.classList.remove('show'))
+})
+function filterProducts(cat){
+  document.querySelectorAll('.product').forEach(p=>{
+    p.style.display=(p.dataset.category===cat)?"block":"none"
+  })
+}
 function showAll(){
-  document.querySelectorAll('.product').forEach(p=>p.style.display="block");
+  document.querySelectorAll('.product').forEach(p=>p.style.display="block")
 }
 </script>
 
