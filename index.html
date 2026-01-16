@@ -146,6 +146,21 @@ footer {
   font-size: 15px;
   color: #888;
 }
+
+/* === MOBILE SWIPE ADD-ON === */
+.mobile-products{display:none;}
+@media(max-width:768px){
+  .mobile-products{display:block;margin-bottom:30px}
+  .mobile-section{margin-bottom:25px}
+  .mobile-title{font-size:18px;font-weight:bold;margin:10px 5px}
+  .mobile-row{
+    display:flex;gap:12px;overflow-x:auto;
+    padding:10px 5px;scroll-snap-type:x mandatory
+  }
+  .mobile-row::-webkit-scrollbar{display:none}
+  .mobile-row .product{min-width:170px;scroll-snap-align:start}
+}
+
 </style>
 </head>
 
@@ -244,6 +259,27 @@ footer {
 </div>
 
 <div class="container">
+
+<!-- MOBILE SWIPE VIEW (ADD ONLY) -->
+<div class="mobile-products">
+  <div class="mobile-section">
+    <div class="mobile-title">1. Handfree</div>
+    <div class="mobile-row" id="m-hand"></div>
+  </div>
+  <div class="mobile-section">
+    <div class="mobile-title">2. Airbuds</div>
+    <div class="mobile-row" id="m-air"></div>
+  </div>
+  <div class="mobile-section">
+    <div class="mobile-title">3. Charger</div>
+    <div class="mobile-row" id="m-charger"></div>
+  </div>
+  <div class="mobile-section">
+    <div class="mobile-title">4. Data Cables</div>
+    <div class="mobile-row" id="m-cable"></div>
+  </div>
+</div>
+
 <div class="products">
 
   <div class="product" data-category="Cables">
@@ -322,6 +358,18 @@ function filterProducts(cat){
 function showAll(){
   document.querySelectorAll('.product').forEach(p=>p.style.display="block")
 }
+
+/* === MOBILE SWIPE AUTO-CLONE === */
+if(window.innerWidth<=768){
+  document.querySelectorAll('.product').forEach(p=>{
+    let c=(p.dataset.category||"").toLowerCase();
+    if(c.includes('hand')) document.getElementById('m-hand')?.appendChild(p.cloneNode(true));
+    if(c.includes('air')) document.getElementById('m-air')?.appendChild(p.cloneNode(true));
+    if(c.includes('charger')) document.getElementById('m-charger')?.appendChild(p.cloneNode(true));
+    if(c.includes('cable')) document.getElementById('m-cable')?.appendChild(p.cloneNode(true));
+  });
+}
+
 </script>
 
 </body>
