@@ -167,21 +167,18 @@ const products = {
     name:"RoyalX Handfree RH-15 (Type-3.5mm JACK)",
     oldPrice:"Rs 650",
     price:"Rs 450",
-    desc:"RoyalX RH-6 Type-3.5mm JACK in-ear handsfree with clear HD sound, deep bass and noise-reduction microphone. Comfortable fit for calls and music.",
-
+    desc:"RoyalX RH-15 3.5mm in-ear handsfree with clear HD sound, deep bass and noise-reduction microphone. Comfortable fit for calls and music.",
     images:["30.jpeg","38.jpg"],
-
     specs:[
-      "Type-C Connector (No 3.5mm Jack)",
+      "3.5mm Audio Jack",
       "Clear HD Sound & Deep Bass",
       "Noise Reduction Microphone",
       "In-line Controls (Call / Music)",
       "Comfortable & Lightweight Design",
       "Durable Tangle-Free Cable",
-      "Compatible with Type-C Android Devices"
+      "Wide Compatibility (All 3.5mm Devices)"
     ],
-
-    related:["royalx-rh5","royalx-rh9","royalx-rbt800","royalx-rbt400", "royalx-rh6", "royalx-rc310"]
+    related:["royalx-rh5","royalx-rh9","royalx-rbt800","royalx-rbt400","royalx-rh6"]
   },
 
   "royalx-rh5":{
@@ -202,22 +199,22 @@ const products = {
     images:["28.jpeg"]
   },
 
-  "royalx-rh15":{
-    name:"RoyalX Handfree RH-15",
-    price:"Rs 450",
-    images:["30.jpeg"]
-  },
-
   "royalx-rbt400":{
     name:"RoyalX Airbuds RBT-400",
     price:"Rs 5000",
     images:["29.jpeg"]
+  },
+
+  "royalx-rh6":{
+    name:"RoyalX Handfree RH-6 (Type-C)",
+    price:"Rs 900",
+    images:["32.jpeg"]
   }
 
 };
 
 /* PAGE LOGIC */
-const id = new URLSearchParams(location.search).get("id") || "royalx-rh6";
+const id = new URLSearchParams(location.search).get("id") || "royalx-rh15";
 const p = products[id];
 let current = 0;
 
@@ -227,7 +224,7 @@ if(!p){
   name.textContent = p.name;
   price.textContent = p.price;
   oldPrice.textContent = p.oldPrice || "";
-  desc.textContent = p.desc;
+  desc.textContent = p.desc || "";
   mainImg.src = p.images[0];
 
   specs.innerHTML =
@@ -245,7 +242,7 @@ if(!p){
       const rp = products[r];
       return `
         <div class="related-item"
-          onclick="location.href='rh6.html?id=${r}'">
+          onclick="location.href='rh15.html?id=${r}'">
           <img src="${rp.images[0]}" alt="${rp.name}">
           <h4>${rp.name}</h4>
           <div>${rp.price}</div>
