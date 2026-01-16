@@ -30,13 +30,11 @@ header img{height:45px}
   font-size:18px;
   font-weight:bold;
   color:gold;
-  letter-spacing:1px;
 }
 nav{
   display:flex;
   align-items:center;
-  gap:18px;
-  flex-wrap:wrap;
+  gap:15px;
 }
 nav a{
   color:#ccc;
@@ -46,68 +44,30 @@ nav a{
 }
 nav a:hover{color:#25D366}
 
-/* HERO BANNER */
-.hero{
-  padding:90px 20px;
+/* SIMPLE BANNER (FIXED) */
+.banner{
+  padding:70px 20px;
   text-align:center;
-  background:
-    linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.85)),
-    url("banner.jpg") center/cover no-repeat;
+  background:linear-gradient(135deg,#111,#000);
   border-bottom:1px solid #222;
 }
-.hero h1{
-  font-size:40px;
+.banner h1{
+  font-size:36px;
   margin-bottom:10px;
 }
-.hero p{
-  font-size:16px;
-  color:#ddd;
+.banner p{
+  color:#ccc;
+  font-size:15px;
 }
 @media(max-width:768px){
-  .hero{padding:60px 15px}
-  .hero h1{font-size:26px}
+  .banner h1{font-size:26px}
 }
-
-/* DROPDOWN */
-.brand-menu{position:relative}
-.brand-dropdown{
-  position:absolute;
-  top:35px;
-  right:0;
-  background:rgba(0,0,0,.95);
-  border:1px solid #222;
-  border-radius:14px;
-  padding:15px;
-  min-width:360px;
-  display:none;
-  z-index:999;
-}
-.brand-menu.show .brand-dropdown{display:block}
-.brand-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:12px;
-}
-.brand-item{
-  text-align:center;
-  font-size:12px;
-  color:#ddd;
-  cursor:pointer;
-}
-.brand-item img{
-  width:100%;
-  border-radius:8px;
-  border:1px solid #333;
-  margin-bottom:5px;
-  transition:.3s;
-}
-.brand-item img:hover{transform:scale(1.05)}
 
 /* PRODUCTS */
 .container{
   max-width:1200px;
   margin:auto;
-  padding:40px 20px;
+  padding:30px 20px;
 }
 .products{
   display:grid;
@@ -115,18 +75,18 @@ nav a:hover{color:#25D366}
   gap:20px;
 }
 .product{
-  background:rgba(255,255,255,.07);
-  border:1px solid rgba(255,255,255,.12);
-  border-radius:16px;
+  background:#111;
+  border:1px solid #222;
+  border-radius:14px;
   padding:15px;
 }
 .product img{
   width:100%;
-  border-radius:12px;
+  border-radius:10px;
 }
 .product h3{
   font-size:15px;
-  margin:10px 0 5px;
+  margin:10px 0 6px;
 }
 .price{
   font-weight:bold;
@@ -143,25 +103,11 @@ nav a:hover{color:#25D366}
   font-size:14px;
 }
 
-/* MOBILE SWIPE */
-.mobile-products{display:none}
-@media(max-width:768px){
-  .mobile-products{display:block;margin-bottom:30px}
-  .mobile-title{font-size:18px;font-weight:bold;margin:10px 5px}
-  .mobile-row{
-    display:flex;
-    gap:12px;
-    overflow-x:auto;
-    padding:10px 5px;
-  }
-  .mobile-row::-webkit-scrollbar{display:none}
-  .mobile-row .product{min-width:170px}
-}
-
+/* FOOTER */
 footer{
   border-top:1px solid #222;
   text-align:center;
-  padding:20px;
+  padding:18px;
   font-size:14px;
   color:#888;
 }
@@ -171,61 +117,43 @@ footer{
 <body>
 
 <header>
-  <img src="logo.jpg">
-  <span class="store-name">Haider Mobiles & Accessories</span>
-
+  <div style="display:flex;align-items:center">
+    <img src="logo.jpg">
+    <span class="store-name">Haider Mobiles & Accessories</span>
+  </div>
   <nav>
-    <a onclick="showAll()">Home</a>
-    <input id="searchInput" placeholder="Search products..."
-      onkeyup="searchProducts()"
-      style="background:#111;border:1px solid #333;color:#fff;padding:6px 10px;border-radius:8px;font-size:13px">
-
-    <!-- Geman -->
-    <div class="brand-menu">
-      <a onclick="toggleMenu(this)">Geman</a>
-      <div class="brand-dropdown">
-        <div class="brand-grid">
-          <div class="brand-item" onclick="filterProducts('charger')">
-            <img src="G1.jpeg">Chargers
-          </div>
-        </div>
-      </div>
-    </div>
+    <a>Home</a>
+    <a>Chargers</a>
+    <a>Handfree</a>
+    <a>Airbuds</a>
   </nav>
 </header>
 
-<div class="hero">
-  <h1>Premium Mobile Accessories Store</h1>
-  <p>Chargers • Handfree • Airbuds • Data Cables<br>
-     RoyalX • Jcell • Geman • KMC • Ronin</p>
+<!-- BANNER -->
+<div class="banner">
+  <h1>Mobile Accessories Store</h1>
+  <p>Chargers • Handfree • Airbuds • Data Cables</p>
 </div>
 
 <div class="container">
-
-<!-- MOBILE -->
-<div class="mobile-products">
-  <div class="mobile-title">Chargers</div>
-  <div class="mobile-row" id="m-charger"></div>
-</div>
-
 <div class="products">
 
-<!-- GEMAN PRODUCTS -->
-<div class="product" data-category="charger">
+<!-- GEMAN PRODUCTS (NOT DELETED) -->
+<div class="product">
   <a href="g1.html"><img src="G1.jpeg"></a>
   <h3>Geman Charger G181</h3>
   <div class="price">Rs 1500</div>
   <a class="btn" href="https://wa.me/923279518790?text=I%20want%20Geman%20G181">Order</a>
 </div>
 
-<div class="product" data-category="charger">
+<div class="product">
   <a href="g218.html"><img src="G2.jpeg"></a>
   <h3>Geman Charger G218</h3>
   <div class="price">Rs 1700</div>
   <a class="btn" href="https://wa.me/923279518790?text=I%20want%20Geman%20G218">Order</a>
 </div>
 
-<div class="product" data-category="charger">
+<div class="product">
   <a href="g213.html"><img src="G3.jpeg"></a>
   <h3>Geman Charger G213</h3>
   <div class="price">Rs 1600</div>
@@ -238,40 +166,6 @@ footer{
 <footer>
 © 2026 Haider Mobiles • Cash on Delivery Available
 </footer>
-
-<script>
-function toggleMenu(el){
-  document.querySelectorAll('.brand-menu').forEach(m=>{
-    m.contains(el)?m.classList.toggle('show'):m.classList.remove('show')
-  })
-}
-document.addEventListener('click',e=>{
-  if(!e.target.closest('.brand-menu'))
-    document.querySelectorAll('.brand-menu').forEach(m=>m.classList.remove('show'))
-})
-function filterProducts(cat){
-  document.querySelectorAll('.product').forEach(p=>{
-    p.style.display=p.dataset.category===cat?"block":"none"
-  })
-}
-function showAll(){
-  document.querySelectorAll('.product').forEach(p=>p.style.display="block")
-}
-function searchProducts(){
-  let q=searchInput.value.toLowerCase();
-  document.querySelectorAll('.product').forEach(p=>{
-    p.style.display=p.innerText.toLowerCase().includes(q)?"block":"none"
-  })
-}
-
-/* MOBILE CLONE */
-if(innerWidth<=768){
-  document.querySelectorAll('.product').forEach(p=>{
-    if(p.dataset.category==="charger")
-      document.getElementById("m-charger").appendChild(p.cloneNode(true))
-  })
-}
-</script>
 
 </body>
 </html>
