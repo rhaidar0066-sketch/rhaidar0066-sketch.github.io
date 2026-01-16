@@ -146,8 +146,49 @@ footer {
   font-size: 15px;
   color: #888;
 }
+  /* ===== MOBILE CATEGORY BAR ===== */
+.mobile-categories{
+  display:none;
+  overflow-x:auto;
+  gap:10px;
+  padding:12px;
+  background:#000;
+  border-bottom:1px solid #222;
+}
+.mobile-categories::-webkit-scrollbar{display:none}
+
+.mobile-cat{
+  flex:0 0 auto;
+  padding:8px 14px;
+  border-radius:20px;
+  background:#111;
+  border:1px solid #333;
+  font-size:13px;
+  color:#fff;
+  white-space:nowrap;
+  cursor:pointer;
+}
+
+/* SHOW ONLY ON MOBILE */
+@media(max-width:768px){
+  nav{display:none;} /* desktop menu hide on mobile */
+  .mobile-categories{display:flex;}
+}
+
 </style>
 </head>
+  <!-- MOBILE CATEGORY BAR -->
+<div class="mobile-categories">
+  <div class="mobile-cat" onclick="showAll()">All</div>
+  <div class="mobile-cat" onclick="filterProducts('Handfree')">Handsfree</div>
+  <div class="mobile-cat" onclick="filterProducts('Cables')">Data Cable</div>
+  <div class="mobile-cat" onclick="filterProducts('Adapter')">Adapter</div>
+  <div class="mobile-cat" onclick="filterProducts('Airbuds')">Airbuds</div>
+  <div class="mobile-cat" onclick="filterProducts('Headphone')">Headphone</div>
+  <div class="mobile-cat" onclick="filterProducts('Neckband')">Neckband</div>
+  <div class="mobile-cat" onclick="filterProducts('Powerbank')">Powerbank</div>
+</div>
+
 
 <body>
 
