@@ -260,6 +260,18 @@ footer {
   color:#fff;
   backdrop-filter: blur(6px);
 }
+  /* ===== GOLD GLOW THEME (ADD ONLY) ===== */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at top, rgba(212,175,55,0.12), transparent 40%),
+    radial-gradient(circle at bottom, rgba(212,175,55,0.08), transparent 45%);
+  pointer-events: none;
+  z-index: 0;
+}
+
 </style>
 </head>
 
