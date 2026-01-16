@@ -211,7 +211,55 @@ footer {
     object-fit:cover;
   }
 }
+/* ===== HERO BANNER PRO DESIGN ===== */
+.hero{
+  padding:70px 20px;
+  background:
+    linear-gradient(135deg,#000,#0b1f14);
+  border-bottom:1px solid #1f3d2b;
+}
 
+.hero-content{
+  max-width:900px;
+  margin:auto;
+  text-align:center;
+}
+
+.hero-logo{
+  height:90px;
+  margin-bottom:15px;
+  filter: drop-shadow(0 0 12px rgba(37,211,102,0.4));
+}
+
+.hero h1{
+  font-size:36px;
+  margin:10px 0;
+  color:#25D366;
+  letter-spacing:1px;
+}
+
+.hero-tagline{
+  font-size:16px;
+  color:#ccc;
+  margin-bottom:25px;
+}
+
+.hero-features{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:14px;
+}
+
+.hero-features span{
+  background:rgba(255,255,255,0.06);
+  border:1px solid rgba(37,211,102,0.4);
+  padding:8px 14px;
+  border-radius:30px;
+  font-size:14px;
+  color:#fff;
+  backdrop-filter: blur(6px);
+}
 </style>
 </head>
 
@@ -302,9 +350,18 @@ footer {
   </nav>
 </header>
 
-<div class="hero">
-  <h1>Premium Mobile Accessories</h1>
-  <p>RoyalX • Jcell • Geman • KMC • Ronin</p>
+<<div class="hero-content">
+  <img src="logo.jpg" class="hero-logo">
+
+  <h1>Haider Mobiles</h1>
+  <p class="hero-tagline">Premium Mobile Accessories & Chargers</p>
+
+  <div class="hero-features">
+    <span>⚡ Fast Chargers</span>
+    <span>🎧 Quality Handsfree</span>
+    <span>🔌 Original Cables</span>
+    <span>🎵 Airbuds</span>
+  </div>
 </div>
 
 <div class="container">
