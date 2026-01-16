@@ -123,36 +123,32 @@ body{
 
 </div>
 
- <!-- RELATED PRODUCTS -->
-  <div class="section">
-    <h2>Other Products</h2>
-    <div class="related-grid" id="related"></div>
-  </div>
+<!-- RELATED PRODUCTS -->
+<div class="section">
+  <h2>Other Products</h2>
+  <div class="related-grid" id="related"></div>
+</div>
 
 </div>
 
 <script>
-/* PRODUCT DATA — HANDSFREE (TYPE-C) */
+/* PRODUCT DATA */
 const products = {
 
   "royalx-rh6":{
     name:"RoyalX Handfree RH-6 (Type-C)",
     oldPrice:"Rs 1500",
     price:"Rs 900",
-    desc:"RoyalX RH-6 Type-C in-ear handsfree with clear HD sound, deep bass and noise-reduction microphone. Comfortable fit for calls and music.",
-
+    desc:"RoyalX RH-6 Type-C in-ear handsfree with clear HD sound, deep bass and noise-reduction microphone.",
     images:["32.jpeg","38.jpg"],
-
     specs:[
-      "Type-C Connector (No 3.5mm Jack)",
+      "Type-C Connector",
       "Clear HD Sound & Deep Bass",
       "Noise Reduction Microphone",
-      "In-line Controls (Call / Music)",
+      "In-line Controls",
       "Comfortable & Lightweight Design",
-      "Durable Tangle-Free Cable",
-      "Compatible with Type-C Android Devices"
+      "Durable Tangle-Free Cable"
     ],
-
     related:["royalx-rh5","royalx-rh9","royalx-rbt800","royalx-rbt400"]
   },
 
@@ -183,7 +179,7 @@ const products = {
 };
 
 /* PAGE LOGIC */
-const id = new URLSearchParams(location.search).get("id") || "Geman-g1";
+const id = new URLSearchParams(location.search).get("id") || "royalx-rh6";
 const p = products[id];
 let current = 0;
 
@@ -191,13 +187,13 @@ if(!p){
   document.querySelector(".container").innerHTML = "<h2>Product not found</h2>";
 }else{
   name.textContent = p.name;
-  price.textContent = p.price;
+  price.textContent = p.price || "";
   oldPrice.textContent = p.oldPrice || "";
-  desc.textContent = p.desc;
-  mainImg.src = p.images[0];
+  desc.textContent = p.desc || "";
+  mainImg.src = p.images?.[0] || "";
 
   specs.innerHTML =
-    (p.specs||[]).map(s => `<div class="spec">${s}</div>`).join("");
+    (p.specs || []).map(s => `<div class="spec">${s}</div>`).join("");
 
   viewing.textContent = Math.floor(Math.random()*15)+5;
   sold.textContent = Math.floor(Math.random()*30)+10;
@@ -207,28 +203,30 @@ if(!p){
     encodeURIComponent("I want " + p.name);
 
   related.innerHTML =
-    (p.related||[]).map(r=>{
+    (p.related || []).map(r=>{
       const rp = products[r];
+      if(!rp) return "";
       return `
         <div class="related-item"
-          onclick="location.href='rh6.html?id=${r}'">
-          <img src="${rp.images[0]}" alt="${rp.name}">
+          onclick="location.href='${location.pathname}?id=${r}'">
+          <img src="${rp.images?.[0] || ''}" alt="${rp.name}">
           <h4>${rp.name}</h4>
-          <div>${rp.price}</div>
+          <div>${rp.price || ''}</div>
         </div>`;
     }).join("");
 }
 
 /* SLIDER */
 function nextImg(){
+  if(!p.images) return;
   current = (current + 1) % p.images.length;
   mainImg.src = p.images[current];
 }
 function prevImg(){
+  if(!p.images) return;
   current = (current - 1 + p.images.length) % p.images.length;
   mainImg.src = p.images[current];
 }
 </script>
-
 </body>
 </html>
