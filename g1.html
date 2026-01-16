@@ -123,16 +123,110 @@ body{
 
 </div>
 
+ <!-- RELATED PRODUCTS -->
+  <div class="section">
+    <h2>Other Products</h2>
+    <div class="related-grid" id="related"></div>
+  </div>
+
+</div>
+
 <script>
-const images = ["G1.jpeg"];
+/* PRODUCT DATA — HANDSFREE (TYPE-C) */
+const products = {
+
+  "royalx-rh6":{
+    name:"RoyalX Handfree RH-6 (Type-C)",
+    oldPrice:"Rs 1500",
+    price:"Rs 900",
+    desc:"RoyalX RH-6 Type-C in-ear handsfree with clear HD sound, deep bass and noise-reduction microphone. Comfortable fit for calls and music.",
+
+    images:["32.jpeg","38.jpg"],
+
+    specs:[
+      "Type-C Connector (No 3.5mm Jack)",
+      "Clear HD Sound & Deep Bass",
+      "Noise Reduction Microphone",
+      "In-line Controls (Call / Music)",
+      "Comfortable & Lightweight Design",
+      "Durable Tangle-Free Cable",
+      "Compatible with Type-C Android Devices"
+    ],
+
+    related:["royalx-rh5","royalx-rh9","royalx-rbt800","royalx-rbt400"]
+  },
+
+  "royalx-rh5":{
+    name:"RoyalX Handfree RH-5",
+    price:"Rs 350",
+    images:["33.jpeg"]
+  },
+
+  "royalx-rh9":{
+    name:"RoyalX Handfree RH-9",
+    price:"Rs 750",
+    images:["26.jpeg"]
+  },
+
+  "royalx-rbt800":{
+    name:"RoyalX Airbuds RBT-800",
+    price:"Rs 4500",
+    images:["28.jpeg"]
+  },
+
+  "royalx-rbt400":{
+    name:"RoyalX Airbuds RBT-400",
+    price:"Rs 5000",
+    images:["29.jpeg"]
+  }
+
+};
+
+/* PAGE LOGIC */
+const id = new URLSearchParams(location.search).get("id") || "Geman-g1";
+const p = products[id];
 let current = 0;
+
+if(!p){
+  document.querySelector(".container").innerHTML = "<h2>Product not found</h2>";
+}else{
+  name.textContent = p.name;
+  price.textContent = p.price;
+  oldPrice.textContent = p.oldPrice || "";
+  desc.textContent = p.desc;
+  mainImg.src = p.images[0];
+
+  specs.innerHTML =
+    (p.specs||[]).map(s => `<div class="spec">${s}</div>`).join("");
+
+  viewing.textContent = Math.floor(Math.random()*15)+5;
+  sold.textContent = Math.floor(Math.random()*30)+10;
+
+  buy.href =
+    "https://wa.me/923279518790?text=" +
+    encodeURIComponent("I want " + p.name);
+
+  related.innerHTML =
+    (p.related||[]).map(r=>{
+      const rp = products[r];
+      return `
+        <div class="related-item"
+          onclick="location.href='rh6.html?id=${r}'">
+          <img src="${rp.images[0]}" alt="${rp.name}">
+          <h4>${rp.name}</h4>
+          <div>${rp.price}</div>
+        </div>`;
+    }).join("");
+}
+
+/* SLIDER */
 function nextImg(){
-  current = (current+1)%images.length;
-  mainImg.src = images[current];
+  current = (current + 1) % p.images.length;
+  mainImg.src = p.images[current];
 }
 function prevImg(){
-  current = (current-1+images.length)%images.length;
-  mainImg.src = images[current];
+  current = (current - 1 + p.images.length) % p.images.length;
+  mainImg.src = p.images[current];
 }
 </script>
 
