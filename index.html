@@ -143,6 +143,12 @@ nav a{
   .hero{padding:20px}
   .products{grid-template-columns:repeat(auto-fill,minmax(160px,1fr))}
 }
+/* MOBILE SWIPE ROWS */
+.mobile-products{display:none;}
+.mobile-row{display:flex; overflow-x:auto; gap:12px; padding-bottom:10px;}
+.mobile-row::-webkit-scrollbar{display:none;}
+.mobile-section{margin-bottom:20px;}
+.mobile-title{font-weight:bold; font-size:16px; margin-bottom:8px; color:#ffd966}
 footer{
   border-top:1px solid rgba(255,215,0,0.2);
   text-align:center;
@@ -252,7 +258,26 @@ input#searchInput{
 </section>
 
 <div class="container">
-  <div class="products">
+<!-- MOBILE SWIPE ROWS -->
+<div class="mobile-products">
+  <div class="mobile-section">
+    <div class="mobile-title">Handfree</div>
+    <div class="mobile-row" id="m-hand"></div>
+  </div>
+  <div class="mobile-section">
+    <div class="mobile-title">Charger</div>
+    <div class="mobile-row" id="m-charger"></div>
+  </div>
+  <div class="mobile-section">
+    <div class="mobile-title">Airbuds</div>
+    <div class="mobile-row" id="m-air"></div>
+  </div>
+  <div class="mobile-section">
+    <div class="mobile-title">Data Cable</div>
+    <div class="mobile-row" id="m-cable"></div>
+  </div>
+</div>
+ <div class="products">
 
     <!-- Products with WhatsApp Links -->
     <div class="product" data-category="cable">
