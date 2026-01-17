@@ -1,118 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<title>Haider Mobiles</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<style>
-*{box-sizing:border-box}
-
-body{
-  margin:0;
-  font-family:Arial,sans-serif;
-  background:#050b14; /* blue-black base */
-  color:#e6c65c; /* gold text */
-  position:relative;
-}
-
-/* ===== GLASSY BLUE BLACK BACKGROUND GLOW ===== */
-body::before{
-  content:"";
-  position:fixed;
-  inset:0;
-  background:
-    radial-gradient(circle at top, rgba(80,140,255,0.12), transparent 40%),
-    radial-gradient(circle at bottom, rgba(0,0,0,0.6), transparent 45%),
-    linear-gradient(135deg, rgba(20,40,80,0.4), rgba(5,10,20,0.9));
-  pointer-events:none;
-  z-index:0;
-}
-
-/* ===== HEADER ===== */
-header{
-  background:rgba(5,10,20,0.75);
-  backdrop-filter:blur(14px);
-  border-bottom:1px solid rgba(255,215,0,0.2);
-  padding:15px 20px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  position:sticky;
-  top:0;
-  z-index:20;
-}
-
-header img{height:45px}
-
-.store-name{
-  margin-left:12px;
-  font-size:18px;
-  font-weight:bold;
-  color:#d4af37;
-}
-
-nav{
-  display:flex;
-  align-items:center;
-  gap:18px;
-  flex-wrap:wrap;
-}
-
-nav a{
-  color:#e6c65c;
-  text-decoration:none;
-  font-size:14px;
-}
-nav a:hover{color:#fff}
-
-/*
-  ===== HERO ===== */
-/* Updated HERO section with fixed dimensions */
-.hero {
-  padding: 80px 20px;
-  min-height: 500px; /* Standard Banner Height */
-  height: 60vh;      /* Makes it responsive to screen height */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  
-  /* Set your banner image here */
-  background: linear-gradient(rgba(5, 11, 20, 0.5), rgba(5, 11, 20, 0.8)), url('b.jpg');
-  background-size: cover;    /* Ensures the image fills the width */
-  background-position: center; 
-  background-repeat: no-repeat;
-  
-  border-bottom: 2px solid #d4af37; /* Royal gold border */
-  position: relative;
-  z-index: 1;
-}
-
-@media(max-width: 768px){
-  .hero {
-    height: 350px; /* Shorter banner for mobile screens */
-    padding-top: 60px;
-  }
-}
-
-/* ===== DROPDOWN ===== */
-.brand-menu{position:relative}
-
-.brand-dropdown{
-  position:absolute;
-  top:35px;
-  right:0;
-  background:rgba(5,10,25,0.95);
-  backdrop-filter:blur(18px);
-  border:1px solid rgba(255,215,0,0.25);
-  border-radius:14px;
   padding:15px;
-  min-width:360px;
+  min-width:320px;
   display:none;
   z-index:99;
 }
-
 .brand-menu.show .brand-dropdown{display:block}
 
 .brand-grid{
@@ -124,20 +14,15 @@ nav a:hover{color:#fff}
 .brand-item{
   text-align:center;
   font-size:12px;
-  color:#e6c65c;
   cursor:pointer;
 }
 
 .brand-item img{
   width:100%;
   border-radius:8px;
-  border:1px solid rgba(255,255,255,0.15);
-  margin-bottom:5px;
-  transition:.3s;
 }
-.brand-item img:hover{transform:scale(1.06)}
 
-/* ===== PRODUCTS ===== */
+/* PRODUCTS */
 .container{max-width:1200px;margin:auto;padding:40px 20px}
 
 .products{
@@ -148,7 +33,6 @@ nav a:hover{color:#fff}
 
 .product{
   background:rgba(255,255,255,0.06);
-  backdrop-filter:blur(14px);
   border:1px solid rgba(255,215,0,0.2);
   border-radius:16px;
   padding:15px;
@@ -156,71 +40,32 @@ nav a:hover{color:#fff}
 
 .product img{width:100%;border-radius:12px}
 
-.product h3{
-  font-size:15px;
-  margin:10px 0 5px;
-  color:#ffd966;
-}
+.product h3{font-size:15px;color:#ffd966}
 
-.price{
-  font-weight:bold;
-  margin-bottom:8px;
-  color:#e6c65c;
-}
+.price{font-weight:bold;margin:6px 0}
 
 .btn{
   display:block;
-  text-align:center;
   background:linear-gradient(135deg,#ffd966,#d4af37);
   color:#000;
+  text-align:center;
   padding:8px;
   border-radius:8px;
   text-decoration:none;
   font-weight:bold;
 }
 
-/* ===== MOBILE ===== */
-.mobile-products{display:none}
-
+/* MOBILE */
 @media(max-width:768px){
-  header{flex-direction:column;gap:12px}
-  .store-name{margin:0;font-size:16px}
-  nav{justify-content:center}
-
-  .hero {
-  padding: 80px 20px;
-  min-height: 500px;
-  height: 60vh;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-
-  /* 🔥 BANNER IMAGE SIRF CSS SE */
-  background:
-    linear-gradient(rgba(5,11,20,0.6), rgba(5,11,20,0.85)),
-    url("b.jpg");
-
-  background-size: cover;      /* image full width */
-  background-position: center; /* center se show */
-  background-repeat: no-repeat;
-
-  border-bottom: 2px solid #d4af37;
-  position: relative;
-  z-index: 1;
-}
+  header{flex-direction:column}
+  .hero{height:350px}
 }
 
-
-/* ===== FOOTER ===== */
 footer{
   border-top:1px solid rgba(255,215,0,0.2);
   text-align:center;
   padding:20px;
-  color:#cbbd77;
 }
-</style>
 
 </head>
 
