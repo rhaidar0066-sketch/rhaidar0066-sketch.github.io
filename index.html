@@ -66,8 +66,22 @@ nav a{
 }
 nav a:hover{color:#fff}
 
-/* ===== HERO ===== */
+/*
+  ===== HERO ===== */
 .hero{
+    position:relative;
+    padding:120px 20px 90px;
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    overflow:hidden;
+    background:
+      radial-gradient(circle at top, rgba(80,140,255,0.25), transparent 45%),
+      linear-gradient(135deg, rgba(10,20,45,0.95), rgba(2,6,14,0.98));
+  },
+  {
   padding:110px 20px 80px;
   min-height:calc(100vh - 90px);
   display:flex;
@@ -321,7 +335,17 @@ footer{
 
   </nav>
 </header>
-
+<section class="hero">
+  <div class="hero-content">
+    <img src="logo.png" class="hero-logo">
+    <h1>Premium Luxury Collection</h1>
+    <p class="hero-tagline">Discover elite quality...</p>
+    <div class="hero-features">
+      <span>✨ Premium Quality</span>
+      <span>🧊 Glassy Finish</span>
+    </div>
+  </div>
+</section>
 <<div class="hero-content">
   <img src="logo.jpg" class="hero-logo">
 
