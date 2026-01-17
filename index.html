@@ -1,9 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Products Page</title>
+
+<style>
+/* BRAND MENU */
+.brand-dropdown{
   padding:15px;
   min-width:320px;
   display:none;
   z-index:99;
 }
-.brand-menu.show .brand-dropdown{display:block}
+
+.brand-menu.show .brand-dropdown{
+  display:block;
+}
 
 .brand-grid{
   display:grid;
@@ -23,7 +36,11 @@
 }
 
 /* PRODUCTS */
-.container{max-width:1200px;margin:auto;padding:40px 20px}
+.container{
+  max-width:1200px;
+  margin:auto;
+  padding:40px 20px;
+}
 
 .products{
   display:grid;
@@ -38,11 +55,20 @@
   padding:15px;
 }
 
-.product img{width:100%;border-radius:12px}
+.product img{
+  width:100%;
+  border-radius:12px;
+}
 
-.product h3{font-size:15px;color:#ffd966}
+.product h3{
+  font-size:15px;
+  color:#ffd966;
+}
 
-.price{font-weight:bold;margin:6px 0}
+.price{
+  font-weight:bold;
+  margin:6px 0;
+}
 
 .btn{
   display:block;
@@ -57,8 +83,12 @@
 
 /* MOBILE */
 @media(max-width:768px){
-  header{flex-direction:column}
-  .hero{height:350px}
+  header{
+    flex-direction:column;
+  }
+  .hero{
+    height:350px;
+  }
 }
 
 footer{
@@ -66,7 +96,7 @@ footer{
   text-align:center;
   padding:20px;
 }
-
+</style>
 </head>
 
 <body>
