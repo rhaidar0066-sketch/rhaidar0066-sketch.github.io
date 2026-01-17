@@ -68,55 +68,32 @@ nav a:hover{color:#fff}
 
 /*
   ===== HERO ===== */
-.hero
-  {
-  padding:110px 20px 80px;
-  min-height:calc(100vh - 90px);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  background:linear-gradient(135deg, rgba(10,20,40,0.7), rgba(0,0,0,0.9));
-  border-bottom:1px solid rgba(255,215,0,0.25);
-  position:relative;
-  z-index:1;
+/* Updated HERO section with fixed dimensions */
+.hero {
+  padding: 80px 20px;
+  min-height: 500px; /* Standard Banner Height */
+  height: 60vh;      /* Makes it responsive to screen height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  
+  /* Set your banner image here */
+  background: linear-gradient(rgba(5, 11, 20, 0.5), rgba(5, 11, 20, 0.8)), url('b.jpg');
+  background-size: cover;    /* Ensures the image fills the width */
+  background-position: center; 
+  background-repeat: no-repeat;
+  
+  border-bottom: 2px solid #d4af37; /* Royal gold border */
+  position: relative;
+  z-index: 1;
 }
 
-.hero-content{max-width:900px;margin:auto}
-
-.hero-logo{
-  height:95px;
-  margin-bottom:16px;
-  filter:drop-shadow(0 0 18px rgba(255,215,0,0.6));
-}
-
-.hero h1{
-  font-size:38px;
-  margin:10px 0;
-  color:#ffd966;
-}
-
-.hero-tagline{
-  color:#d9c77a;
-  max-width:620px;
-  margin:0 auto 26px;
-  line-height:1.6;
-}
-
-.hero-features{
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:center;
-  gap:14px;
-}
-
-.hero-features span{
-  background:rgba(255,255,255,0.06);
-  border:1px solid rgba(255,215,0,0.35);
-  padding:8px 14px;
-  border-radius:30px;
-  font-size:14px;
-  color:#ffd966;
+@media(max-width: 768px){
+  .hero {
+    height: 350px; /* Shorter banner for mobile screens */
+    padding-top: 60px;
+  }
 }
 
 /* ===== DROPDOWN ===== */
